@@ -1,0 +1,36 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+        //Program name: Customer Statistics
+        //Purpose: Compute total and average number of customers over 4 hours
+        //Author: Dev Shah
+        //Date last modified: 01-Mar-2023
+        var BR = "<br/>";
+        document.write("Sunshine Books Customer Statistics Program"+BR);
+
+        var totCust,avgCust;
+        var count1=parseInt(prompt("Enter no. of customer in 1st hour: ",ES));
+        var count2=parseInt(prompt("Enter no. of customer in 2nd hour: ",ES)); 
+        var count3=parseInt(prompt("Enter no. of customer in 3rd hour: ",ES));
+        var count4=parseInt(prompt("Enter no. of customer in 4th hour: ",ES));
+        const NUM_HOURS = 4;
+        var ES = "";
+
+        totCust=count1+count2+count3+count4;
+        avgCust=(totCust/NUM_HOURS).toFixed();
+
+        document.write(`Total no. of customers : ${totCust}`+BR);
+        document.write(`Average no. of customers per hour : ${avgCust}`+BR);
+        document.write("Thank you"+BR);
+
+        
+</script>
+    </body>
+    </html>
