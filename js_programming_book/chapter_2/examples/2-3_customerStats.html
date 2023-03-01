@@ -16,12 +16,13 @@
         document.write("Sunshine Books Customer Statistics Program"+BR);
 
         var totCust,avgCust;
+        var ES = "";
         var count1=parseInt(prompt("Enter no. of customer in 1st hour: ",ES));
         var count2=parseInt(prompt("Enter no. of customer in 2nd hour: ",ES)); 
         var count3=parseInt(prompt("Enter no. of customer in 3rd hour: ",ES));
         var count4=parseInt(prompt("Enter no. of customer in 4th hour: ",ES));
         const NUM_HOURS = 4;
-        var ES = "";
+        
 
         totCust=count1+count2+count3+count4;
         avgCust=(totCust/NUM_HOURS).toFixed();
