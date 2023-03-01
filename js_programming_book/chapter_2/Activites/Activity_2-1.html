@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var BR="<br/>";
+        var ES="";
+        document.write(`<h1>Market value calculator</h1> ${BR}`);
+        var building_name =prompt("Enter your building here : ");
+        var MV_2010 = parseInt(prompt(`Enter market value of ${building_name} in 2010 here: ₹`));
+        var MV_2011 = parseInt(prompt(`Enter market value of ${building_name} in 2011 here: ₹`));
+        var difference=MV_2011-MV_2010;
+        var MV_estimate=difference*100/MV_2010;
+        document.write(`<h2>Welcoming to Market Value Calculator ${building_name}</h2> ${BR}${BR}`);
+        document.write(`<h3>The Market Value of your building is ${MV_estimate.toFixed(2)}%</h3>`);
+
+    </script>
+</body>
+</html>
