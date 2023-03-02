@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var BR="<br />";
+        var ES="";
+
+        document.write(`<h1>BENNET'S USED AUTO SALES REPORT</h1>${BR}`);
+        
+        var q_1=parseFloat(prompt("Enter your 1st Quarter sales here: ",ES));
+        var q_2=parseFloat(prompt("Enter your 2nd Quarter sales here: ",ES));
+        var q_3=parseFloat(prompt("Enter your 3rd Quarter sales here: ",ES));
+        var q_4=parseFloat(prompt("Enter your 4th Quarter sales here: ",ES));
+
+        var totSales=q_1+q_2+q_3+q_4;
+        var avgSales=totSales/4;
+
+        document.write(`<h2>Quarterlly Result of 2010</h2> ${BR}`);
+        document.write(`Quarter 1: ${q_1} Samples | Quarter 2: ${q_2} Samples | Quarter 3: ${q_3} Samples | Quarter 4: ${q_4} Samples ${BR}`);
+        document.write(`Total Sales Per Year: ${totSales} ${BR}`);
+        document.write(`Average Quarterly Sales : ${avgSales}${BR}`);
+</script>
+</body>
+</html>
