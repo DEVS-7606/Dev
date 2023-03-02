@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var BR="<br />";
+        var ES="";
+
+        document.write(`<h1>Personal Budget Calculator</h1> ${BR}`);
+        document.write(`<h2>Monthly Expenditures</h2>${BR}`);
+
+        var Rent=parseInt(prompt("Enter your Rent expenditure here : ",ES));
+        var Food=parseInt(prompt("Enter your Food cost here : ",ES));
+        var Utilities=parseInt(prompt("Enter your Utilities Expenditures here : ",ES));
+        var Other_expenses=parseInt(prompt("Enter The Sum Of Your Other Expenses here : ",ES));
+
+        var Total_exp=Rent+Food+Utilities+Other_expenses;
+        document.write(`<h3>Total expenditure: ${Total_exp.toFixed(2)}$</h3>${BR}`);
+        
+        var rentPer=(Rent/Total_exp)*100;
+        document.write(`<h4>Rent Expenditure out of Total Expense: ${rentPer.toFixed(1)}</h4>${BR}`);
+        
+        var foodPer=(Food/Total_exp)*100;
+        document.write(`<h4>Food Expenditure out of Total Expense: ${foodPer.toFixed(1)}</h4>${BR}`);
+
+        var UtilitiesPer=(Utilities/Total_exp)*100;
+        document.write(`<h4>Utilities Expenditure out of Total Expense: ${UtilitiesPer.toFixed(1)}</h4>${BR}`);
+        
+        var otherPer=(Other_expenses/Total_exp)*100;
+        document.write(`<h4>Other Expenditure out of Total Expense: ${otherPer.toFixed(1)}</h4>${BR}`);
+
+</script>
+</body>
+</html>
