@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    class Account {
+      constructor(acctType, acctNum, lastName, firstName, acctBal) {
+        this.acctType = acctType;
+        this.acctNum = parseInt(acctNum);
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.acctBal = parseInt(acctBal);
+      }
+      accInfo(){
+        document.write(`<h3>Your Name: ${this.lastName} ${this.firstName}<br>Your Account Type: ${this.acctType}<br>Your Account Number: ${this.acctNum}<br>Your Account Balance: ${this.acctBal}<br></h3>`);
+      }
+    }
+    document.write("<h1>Account Program</h1>");
+    document.write("<h2>This program creates an account.</h2>");
+    let mySavingsAcct = new Account("S", 120000, "Dunes", "Saudi", 1200);
+    // let myCavingsAcct = new Account("C", 120500, "Duns", "Sudi", 120034);
+    mySavingsAcct.accInfo();
+    // myCavingsAcctsaCCiNFO();
+    document.write("<h4>Thank you</h4>");
+  </script>
+</body>
+
+</html>
