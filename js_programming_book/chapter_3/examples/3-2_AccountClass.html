@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        class Account {
+            constructor(acctType,acctNum,lastName,firstName,Bal) {
+                this.acctType = acctType;
+                this.acctNum = parseInt(acctNum);
+                this.lastName = lastName;
+                this.firstName = firstName;
+                this.acctBal = parseInt(Bal);
+            }
+            deposit(amt) {
+                this.acctBal = this.acctBal + amt;
+                document.write(`The new balance is: ${this.acctBal}<br />`);
+                // console.log(this);
+
+            }
+
+            withdraw(amt) {
+                this.acctBal = this.acctBal - amt;
+                document.write(`The new balance is: ${this.acctBal}<br />`);
+                
+            }
+
+            changeName(newFirstName,newLastName) {
+                this.firstName = newFirstName;
+                this.lastName = newLastName;
+                document.write(`The Owner name has been changed to ${this.firstName} ${this.lastName}<br />`);
+                // console.log(this);
+            }
+
+            Inquire() {
+                return document.write(this.acctBal);
+            }
+
+            displayInfo() {
+                document.write("<br /><h2>YOUR ACCOUNT DETAILS</h2><br />");
+                document.write(`Account Number: ${this.acctNum}<br />`);
+                document.write(`Account Type: ${this.acctType}<br />`);
+                document.write(`Owner Name: ${this.lastName} ${this.firstName}<br />`);
+                document.write(`Account Balance: ${this.acctBal}<br />`);
+            }
+        }
+
+        let mySavingAcct=new Account("S",192883747,"Dunes","sandi",800.00);
+
+        mySavingAcct.deposit(10000.00);
+        mySavingAcct.withdraw(2000);
+        mySavingAcct.Inquire();
+        mySavingAcct.displayInfo();
+        mySavingAcct.changeName("raju","rastogi");
+    </script>
+</body>
+
+</html>
