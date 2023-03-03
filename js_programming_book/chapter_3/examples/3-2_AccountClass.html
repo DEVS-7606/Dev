@@ -17,29 +17,32 @@
                 this.lastName = lastName;
                 this.firstName = firstName;
                 this.acctBal = parseInt(Bal);
+                
             }
             deposit(amt) {
                 this.acctBal = this.acctBal + amt;
-                document.write(`The new balance is: ${this.acctBal}<br />`);
+                document.write(`The new balance after deposit : ${this.acctBal}<br />`);
                 // console.log(this);
 
             }
 
             withdraw(amt) {
                 this.acctBal = this.acctBal - amt;
-                document.write(`The new balance is: ${this.acctBal}<br />`);
+                document.write(`The new balance after withdrawal: ${this.acctBal}<br />`);
                 
             }
 
             changeName(newFirstName,newLastName) {
                 this.firstName = newFirstName;
                 this.lastName = newLastName;
-                document.write(`The Owner name has been changed to ${this.firstName} ${this.lastName}<br />`);
+                document.write(`The Owner name has been changed to ${this.lastName} ${this.firstName} <br />`);
+                this.displayInfo(this.firstName,this.lastName)
+
                 // console.log(this);
             }
 
             Inquire() {
-                return document.write(this.acctBal);
+                return document.write(`Total Balance: ${this.acctBal}`);
             }
 
             displayInfo() {
@@ -58,6 +61,7 @@
         mySavingAcct.Inquire();
         mySavingAcct.displayInfo();
         mySavingAcct.changeName("raju","rastogi");
+        mySavingAcct.changeName("dev","shah");
     </script>
 </body>
 
