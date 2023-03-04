@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        var someNum1, sqRoot, absolute, nextHighest, nextLowest, someNum2, higherNum, lowestNum, ES = "", BR = "<br />", PA = "<p />";
+        document.write(`<h1>Welcome to Math Methods Program.</h1> ${BR}`);
+        document.write(`<h2>This program asks for a decimal number and calculates the square root,absolute value and the next highest and next lowest whole number.</h2>${BR}`);
+        document.write(`<h2>It then asks for a second number and calculates the higher and the lower of the two numbers.</h2>${BR}`);
+        
+        someNum1=parseFloat(prompt(`Enter a number: ${ES}`));
+        
+        sqRoot=Math.sqrt(someNum1);
+        absolute=Math.abs(someNum1);
+        nextHighest=Math.ceil(someNum1);
+        nextLowest=Math.floor(someNum1);
+
+        document.write(`Square Root: ${sqRoot.toFixed(2)} ${BR}`);
+        document.write(`Absolute Value: ${absolute.toFixed(2)} ${BR}`);
+        document.write(`Next Highest whole number: ${nextHighest.toFixed(2)} ${PA}`);
+        document.write(`Next Lowest whole number: ${nextLowest.toFixed(2)} ${PA}`);
+        
+        someNum2=parseFloat(prompt(`Enter another number: ${ES}`));
+
+        higherNum=Math.max(someNum1,someNum2);
+        lowestNum=Math.min(someNum1,someNum2);
+        document.write(`Higher of the two: ${higherNum} ${BR}`);
+        document.write(`Lower of the two: ${lowestNum} ${BR}`);
+
+
+    </script>
+</body>
+
+</html>
