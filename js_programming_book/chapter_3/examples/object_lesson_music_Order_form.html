@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>-:Music Album Order Form:-</h1>
+
+    <form name="Music_Album" action="">
+    <h2>Music-Albums</h2>
+    <select id="Music" size="1">
+        <option>Wolves - Selena Gomez</option>
+        <option>Dynamite - BTS</option>
+        <option selected>Safari - Serena</option>
+        <option>Believer - Imagine Dragon</option>
+        <option>Levitating - Dua Lipa</option>
+    </select><br /><br />
+    
+    <h2>Select Credit Card</h2>
+    <input type="radio" name="Credit-Cards" value="Mastercard" id="Cards" onclick="select_card(this.value)"/>Master Card<br />
+    <input type="radio" name="Credit-Cards" value="Visa" id="Cards" onclick="select_card(this.value)"/>Visa<br />
+    <input type="radio" name="Credit-Cards" value="American Express" id="Cards" onclick="select_card(this.value)"/>American Express<br />
+    <input type="radio" name="Credit-Cards" value="Rupay" id="Cards" onclick="select_card(this.value)"/>Rupay Card<br />
+
+    <h2>Enter Your Details</h2>
+    First Name : <input type="text" name="firstname" id="fn" value="" size="40" placeholder="firstname"/><br /><br />
+    Last Name : <input type="text" name="lastname" id="ln" value="" size="40" placeholder="lastname"/><br /><br />
+    E-mail : <input type="text" name="email" id="em" value="" size="43" placeholder="Email"><br /> <br />
+
+    <input type="button" name="button" value="Place Order" onclick="display()"/>
+    <h2>Your Order Details</h2>
+    <textarea name="displayInfo" id="Output" readonly="true" value="" rows="6" cols="60" placeholder="All information will be displayed here"></textarea>
+    </form>
+
+    <script type="text/javascript">
+        function display(){
+            let firstName=document.getElementById("fn").value;
+            let lastName=document.getElementById("ln").value;
+            let emailAdd=document.getElementById("em").value;
+            let Song_selected=document.getElementById("Music").value;
+            // let Selected_Card=document.getElementById("select_card").value;
+            // console.log(Selected_Card);
+            document.getElementById("Output").innerHTML=
+            `Full Name : ${firstName} ${lastName} \nEmail : ${emailAdd} \nMusic-Album : ${Song_selected} \nAlbum-Price: $0.99 \nCredit-Card : ${this.next_card}`
+        }
+
+        function select_card(new_card){
+            this.next_card=new_card;
+            // console.log(next_card);
+        }
+
+    </script>
+</body>
+
+</html>
