@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>SHOP INVENTORY</h1>
+    <textarea
+      id="demo"
+      name="output"
+      readonly="true"
+      cols="50"
+      rows="10"
+    ></textarea>
+
+    <script type="text/javascript">
+      class inventory_tracker {
+        constructor(manufacturer, size, price) {
+          this.manufacturer = manufacturer;
+          this.size = parseInt(size);
+          this.price = parseInt(price);
+        }
+        set_price(new_price) {
+          this.new_price = new_price;
+        }
+
+        display_info() {
+          document.getElementById(
+            "demo"
+          ).innerHTML = `Manufacture name : ${this.manufacturer} \nSize : ${this.size} inch's \nPrice : $${this.price} \nNew Price : $${this.new_price}`;
+        }
+      }
+      let owner_inventory = new inventory_tracker("Sony", 32, 3200);
+      owner_inventory.set_price(2000);
+      owner_inventory.display_info();
+    </script>
+  </body>
+</html>
