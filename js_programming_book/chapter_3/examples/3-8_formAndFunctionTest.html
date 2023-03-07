@@ -1,46 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body bgColor="lightblue">
+  <body bgcolor="lightblue">
     <form name="ColorAndText" action="">
-        <input type="radio" name="colors" value="pink" onclick="setColor(this.value)" />Pink<br />
-        <input type="radio" name="colors" value="green" onclick="setColor(this.value)" />Green<br />
-        <input type="radio" name="colors" value="violet" onclick="setColor(this.value)" />Violet<br />
+      <input
+        type="radio"
+        name="colors"
+        value="pink"
+        onclick="setColor(this.value)"
+      />Pink<br />
+      <input
+        type="radio"
+        name="colors"
+        value="green"
+        onclick="setColor(this.value)"
+      />Green<br />
+      <input
+        type="radio"
+        name="colors"
+        value="violet"
+        onclick="setColor(this.value)"
+      />Violet<br />
 
-        <input type="button" name="changeButton" value="Change Color" onclick="changeColor()" />
-        <p />
+      <input
+        type="button"
+        name="changeButton"
+        value="Change Color"
+        onclick="changeColor()"
+      />
+      <p />
 
-        <input type="text" id="fn" name="firstName" value="First Name" size="40"><br />
-        <input type="text" id="ln" name="lastName" value="Last Name" size="40"><br />
+      <input
+        type="text"
+        id="fn"
+        name="firstName"
+        value="First Name"
+        size="40"
+      /><br />
+      <input
+        type="text"
+        id="ln"
+        name="lastName"
+        value="Last Name"
+        size="40"
+      /><br />
 
-        <input type="text" id="fullName" name="fullName" readonly="true" size="40"><br />
-        <input type="button" name="displayName" value="button" onclick="displayN()"><br>
+      <input
+        type="text"
+        id="fullName"
+        name="fullName"
+        readonly="true"
+        size="40"
+      /><br />
+      <input
+        type="button"
+        name="displayName"
+        value="button"
+        onclick="displayN()"
+      /><br />
     </form>
 
     <script type="text/javascript">
+      var nextColor = "";
 
-        var nextColor = "";
+      function setColor(newColor) {
+        nextColor = newColor;
+      }
 
-        function setColor(newColor) {
-            nextColor = newColor;
-        }
-
-        function changeColor() {
-            document.body.bgColor = nextColor;
-        }
-        function displayN() {
-            var firstName = document.getElementById("fn").value;
-            var lastName = document.getElementById("ln").value;
-            document.ColorAndText.fullName.value = firstName + " " + lastName;
-        }
+      function changeColor() {
+        document.body.bgColor = nextColor;
+      }
+      function displayN() {
+        var firstName = document.getElementById("fn").value;
+        var lastName = document.getElementById("ln").value;
+        document.ColorAndText.fullName.value = firstName + " " + lastName;
+      }
     </script>
-</body>
-
+  </body>
 </html>
