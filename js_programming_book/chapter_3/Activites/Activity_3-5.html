@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>FLOWER SHOP</h1>
+    <form name="flower_shop" action="">
+      <input
+        type="text"
+        name="fullname"
+        id="fn"
+        value="full name"
+        size="40"
+      /><br />
+
+      <input
+        type="radio"
+        name="flowers"
+        value="Roses"
+        onclick="selected_flower(this.value)"
+      />Roses<br />
+      <input
+        type="radio"
+        name="flowers"
+        value="Carnations"
+        onclick="selected_flower(this.value)"
+      />Carnations<br />
+      <input
+        type="radio"
+        name="flowers"
+        value="Daisies"
+        onclick="selected_flower(this.value)"
+      />Daisies<br />
+
+      <input
+        type="button"
+        name="request"
+        value="Request-Info"
+        onclick="display_info()"
+      /><br />
+
+      <textarea
+        name="display"
+        id="output"
+        readonly="true"
+        cols="50"
+        rows="6"
+      ></textarea>
+    </form>
+
+    <script type="text/javascript">
+      var next_flower = "";
+      function selected_flower(new_flower) {
+        next_flower = new_flower;
+      }
+      function display_info() {
+        let fullName = document.getElementById("fn").value;
+        document.getElementById(
+          "output"
+        ).innerHTML = `${fullName} ,thank you for your inquiry about ${next_flower}`;
+      }
+    </script>
+  </body>
+</html>
