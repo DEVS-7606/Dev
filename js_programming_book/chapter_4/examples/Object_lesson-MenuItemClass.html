@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      class MenuItem {
+        constructor(name, category, price) {
+          this.itemName = name;
+          this.category = category;
+          this.itemPrice = parseFloat(price);
+        }
+        displayInfo() {
+          document.write(
+            `item name : ${this.itemName}<br />Category : ${this.category}<br />Price of item : $${this.itemPrice}<br /><br />`
+          );
+        }
+      }
+
+      document.write("Welcome to the Menu Maker!<br /><br />");
+
+      let pastrami = new MenuItem("Pastrami", "Sandwich", 4.95);
+      let ham = new MenuItem("ham", "Sandwich", 5.25);
+      let milkShake = new MenuItem("Milk Shake", "Drink", 2.95);
+      let softDrink = new MenuItem("Coco-Cola", "Soft Drink", 1.49);
+
+      pastrami.displayInfo();
+      ham.displayInfo();
+      milkShake.displayInfo();
+      softDrink.displayInfo();
+
+      document.write("Thank you !");
+    </script>
+  </body>
+</html>
