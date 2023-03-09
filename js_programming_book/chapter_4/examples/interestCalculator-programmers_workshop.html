@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var BR = "<br />";
+      var ES = "";
+
+      var initial_balance = parseFloat(
+        prompt("Enter your balance amount here : ", ES)
+      );
+      var intRateInPer = parseFloat(
+        prompt(`Enter your Annual Interest Rate here : ${0}`)
+      );
+
+      var intRate = intRateInPer / 100;
+      var interest = initial_balance * intRate;
+      var total_balance = initial_balance + interest;
+
+      document.write(`Your Annual interest will be : ${interest} /- ${BR}`);
+      document.write(`Your Total Balance will be : ${total_balance}/- `);
+    </script>
+  </body>
+</html>
