@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>BuzzButtons</h1>
+    <h2>"It starts the buzz"</h2>
+    <form>
+      Name :
+      <input type="text" name="fullname" value="" id="Name" size="40" /><br />
+      Email :
+      <input type="text" name="email" value="" id="eMail" size="40" /><br />
+      No. of Buttons :<input
+        type="number"
+        name="num"
+        id="numOfButtons"
+        value=""
+      /><br /><br />
+      <input
+        type="button"
+        name="display info"
+        id=""
+        value="Place Order"
+        onclick="displayInfo()"
+      /><br />
+    </form>
+    <script type="text/javascript">
+      function displayInfo() {
+        let salesTaxRate = 0.06;
+        let shippingRate = 2;
+        let button_value = 0.99;
+
+        let fullName = document.getElementById("Name").value;
+        let e_mail = document.getElementById("eMail").value;
+        let Ordered_buttons = document.getElementById("numOfButtons").value;
+
+        let buttons_total_price = Ordered_buttons * button_value;
+        let salesTax = buttons_total_price * salesTaxRate;
+        let total_order_price = buttons_total_price + salesTax + shippingRate;
+
+        document.write(
+          "<h1>BuzzButtons</h1><br/><h2>`It starts the buzz`</h2><br />"
+        );
+        document.write(`Name : ${fullName} <br/>E-mail : ${e_mail} <br/>`);
+        document.write(
+          `Sales Tax : ${salesTax.toFixed(
+            2
+          )} <br/>Shipping Amount : ${shippingRate} <br/>`
+        );
+        document.write(
+          `Total Order Amount : ${total_order_price.toFixed(2)} <br/>`
+        );
+      }
+    </script>
+  </body>
+</html>
