@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>"Welcome to Bulk Is Best !!"</h1>
+    <h2>`please enter your details below as asked. `</h2>
+    <form>
+      First Name :<input
+        type="text"
+        name="firstname"
+        id="fn"
+        value=""
+        size="40"
+      /><br />
+      Last Name :<input
+        type="text"
+        name="lastname"
+        id="ln"
+        value=""
+        size="40"
+      /><br />
+      No. of Pieces :
+      <input type="number" name="order-value" id="orderValue" value="1" /><br />
+      State(state Abbreviation) :<input
+        type="text"
+        name="stateName"
+        id="stateAbb"
+        value=""
+        size="20"
+        maxlength="2"
+      /><br />
+      <input
+        type="button"
+        name="Place Order"
+        value="Order"
+        onclick="displayInfo()"
+      /><br />
+    </form>
+    <script type="text/javascript">
+      function displayInfo() {
+        let firstName = document.getElementById("fn").value;
+        let lastName = document.getElementById("ln").value;
+
+        let pieces_ordered = document.getElementById("orderValue").value;
+
+        let stateAbbreviation = document.getElementById("stateAbb").value;
+
+        let shipping_charge;
+        let pricePerPiece;
+        let total_price;
+        let total_amount;
+
+        if (stateAbbreviation == "ID" || stateAbbreviation == "id") {
+          shipping_charge = 0.0;
+          if (pieces_ordered >= 6) {
+            pricePerPiece = 2.0;
+            total_price = pricePerPiece * pieces_ordered;
+            total_amount = total_price;
+          } else {
+            pricePerPiece = 2.5;
+            total_price = pricePerPiece * pieces_ordered;
+            total_amount = total_price;
+          }
+        } else {
+          shipping_charge = 4.0;
+          if (pieces_ordered >= 6) {
+            pricePerPiece = 2.0;
+            total_price = pricePerPiece * pieces_ordered;
+            total_amount = total_price + shipping_charge;
+          } else {
+            pricePerPiece = 2.5;
+            total_price = pricePerPiece * pieces_ordered;
+            total_amount = total_price + shipping_charge;
+          }
+        }
+
+        document.write(`Customer Name : ${firstName} ${lastName}<br />`);
+        document.write(`Package price : $${pricePerPiece}<br />`);
+        document.write(`Total package cost : $${total_price}<br />`);
+        document.write(
+          `State to ship(state Abbreviation is given) : ${stateAbbreviation}<br />`
+        );
+        document.write(`Shipping Cost : $${shipping_charge}<br />`);
+        document.write(`Total Order Cost : $${total_amount}<br />`);
+      }
+    </script>
+  </body>
+</html>
