@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      let raining = prompt("Is it raining ?", "Yes");
+
+      if (raining == "Yes") {
+        let min = 2;
+        let max = 30;
+        let water_level = Math.random() * (min, max);
+        if (water_level >= 20) {
+          document.write(`Water level : ${water_level.toFixed(2)} liters<br>`);
+          document.write("Empty the bucket");
+        } else {
+          document.write(`Water level : ${water_level.toFixed(2)} liters<br>`);
+          document.write("check after 10 mins again please");
+        }
+      } else {
+        document.write("Please fix this asap");
+      }
+    </script>
+  </body>
+</html>
