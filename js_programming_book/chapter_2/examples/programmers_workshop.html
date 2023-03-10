@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var BR="<br />";
+        document.write("Paycheck Receipt !!"+ BR);
+        var ES ="";
+        var firstName = prompt(`Enter your first name here : `,ES);
+        var lastName = prompt(`Enter your last name here : `,ES);
+        var Worked_hours = parseInt(prompt("Enter the numbers of hours worked per month : ",ES));
+        var wageRate = parseFloat(prompt("Enter your wage per rate here: ",1));
+        var grossPay=Worked_hours*wageRate;
+        var fedTax=grossPay*(15/100);
+        var stateTax=grossPay*(3.4/100);
+        var countyTax=grossPay*(1.1/100);
+        const medinsDed = parseInt(prompt("Enter your medical insurane deduction here : "));
+        var totalDed=fedTax+stateTax+countyTax+medinsDed;
+        var netPay=grossPay-totalDed;
+        document.write(`Employee Name: ${firstName} ${lastName}${BR}`);
+        document.write(`Gross pay: ${grossPay}$${BR}`);
+        document.write(`Federal income tax withholding: ${fedTax}$${BR}`);
+        document.write(`State income tax withholding: ${stateTax.toFixed(2)}$${BR}`);
+        document.write(`County income tax withholding: ${countyTax.toFixed(2)}$${BR}`);
+        document.write(`Medical deductions: ${medinsDed}$${BR}`);
+        document.write(`Total deductions: ${totalDed}$${BR}`);
+        document.write(`Net pay: ${netPay}$${BR}`);
+
+
+    </script>
+</body>
+</html>
