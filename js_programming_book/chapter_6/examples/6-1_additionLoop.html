@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let num1, num2, num_total, more;
+      document.write("Welcome to this addition program <br />");
+      document.write("It repeats until you choose to quit. <br />");
+      do {
+        num1 = parseInt(prompt("Enter the first number: ", 0));
+        num2 = parseInt(prompt("Enter the second number: ", 0));
+        num_total = num1 + num2;
+        document.write(`Sum of the numbers: ` + num_total + "<br />");
+        more = prompt("More numbers to add(Y/N) ?", "N");
+      } while (more == "Y");
+      //   document.write(`Sum of the numbers: ` + num_total + "<br />");
+      document.write("<br />Thank You !!!<br />");
+    </script>
+  </body>
+</html>
