@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let custName, newCustNum;
+      class QuickTunesCustomer {
+        constructor(lname, fname, strAddr, city, state, zip) {
+          // custNumber=newCustNum;
+          this.Number = newCustNum;
+          newCustNum++;
+          this.LastName = lname;
+          this.FirstName = fname;
+          custName = lname + " " + fname;
+          this.StreetAddr = strAddr;
+          this.City = city;
+          this.State = state;
+          this.Zip = zip;
+        }
+        setCustomer(startNum) {
+          newCustNum = startNum;
+        }
+        displayInfo() {
+          document.write(`Customer Num: ${this.Number}<br />`);
+          document.write(`Name: ${custName}<br />`);
+          document.write(`Address: ${this.StreetAddr}<br/>`);
+          document.write(
+            `City ,State ,Zip: ${this.City} ,${this.State} ,${this.Zip}<br /><br />`
+          );
+        }
+      }
+
+      let startNum,
+        lastName,
+        firstName,
+        address,
+        city,
+        state,
+        zip,
+        newNewCusts = 0;
+
+      document.write("QuickTunes New Customer Program<br />");
+
+      startNum = parseInt(prompt("Enter starting customer number: ", 0));
+
+      new QuickTunesCustomer().setCustomer(startNum);
+
+      lastName = prompt("Enter last name (or Q to quit): ");
+
+      while (lastName != "Q") {
+        newNewCusts++;
+        firstName = prompt("Enter Customer's First name :");
+        address = prompt("Enter customer's street address:");
+        city = prompt("Enter customer's city: ");
+        state = prompt("Enter customer's state:");
+        zip = prompt("Enter Customer's zip code: ");
+        let newCust = new QuickTunesCustomer(
+          lastName,
+          firstName,
+          address,
+          city,
+          state,
+          zip
+        );
+        newCust.displayInfo();
+        lastName = prompt("Enter last name(or Q to Quit): ");
+      }
+      document.write(
+        `# of new customers added: ${newNewCusts}<br />Thank you!!!!`
+      );
+    </script>
+  </body>
+</html>
