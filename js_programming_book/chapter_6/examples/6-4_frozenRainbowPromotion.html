@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let empName,
+        maxName,
+        dailyAmt,
+        empTot,
+        maxTot = 0,
+        grandTot = 0,
+        dayIndex;
+
+      document.write("Frozen Rainbow Promotion Program<br />");
+
+      empName = prompt("Enter employee's name (or Q to quit):", "");
+
+      while (empName != "Q") {
+        empTot = 0;
+        for (dayIndex = 1; dayIndex < 6; dayIndex++) {
+          dailyAmt = parseInt(
+            prompt(`${empName} enter the amount for day ${dayIndex} : `, 0)
+          );
+          empTot = empTot + dailyAmt;
+        }
+        document.write(`${empName} : total is ${empTot}<br />`);
+        if (empTot > maxTot) {
+          maxTot = empTot;
+          maxName = empName;
+        }
+        grandTot = grandTot + empTot;
+        empName = prompt("Enter employee's name (or Q to quit):", "");
+      }
+      document.write(`Grand total of coupon purchases: ${grandTot}<br />`);
+      document.write(`Employee with highest amount: ${maxName}<br />`);
+      document.write(`Highest amount: ${maxTot}<br />`);
+    </script>
+  </body>
+</html>
