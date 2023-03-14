@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      let empName,
+        dayIndex,
+        maxTemp = 0,
+        AvgTemp,
+        Temp,
+        minTemp,
+        TotTemp = 0;
+      tempArray = [];
+
+      document.write("Temperature Statistics<br>");
+
+      empName = prompt("Enter Employee Name:", "");
+      document.write(`Employee Name : ${empName}<br>`);
+
+      for (dayIndex = 1; dayIndex <= 3; dayIndex++) {
+        Temp = parseInt(prompt(`Enter Temperature of  day ${dayIndex}: `));
+        TotTemp = TotTemp + Temp;
+        tempArray.push(Temp);
+
+        if (Temp > maxTemp) {
+          maxTemp = Temp;
+        }
+
+        minTemp = Math.min(...tempArray);
+      }
+
+      AvgTemp = TotTemp / 3;
+      document.write(`Average Temperature: ${AvgTemp}<br>`);
+      document.write(`Maxium Temperature: ${maxTemp}<br>`);
+      document.write(`Minimum Temprature: ${minTemp}<br><br>`);
+    </script>
+  </body>
+</html>
