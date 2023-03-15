@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      let category,
+        MorningTime = 0,
+        EveningTime = 0,
+        AfternoonTime = 0,
+        quantity,
+        Total_cards = 0;
+      category = prompt(
+        "Enter your Time of visit here(M for Morning, A for Afternoon and E for Evening Q for Quit): ",
+        ""
+      );
+      while (category != "Q") {
+        if (category == "M") {
+          quantity = parseInt(prompt(`Enter the Quantity : `, 0));
+          MorningTime += quantity;
+        } else if (category == "A") {
+          quantity = parseInt(prompt(`Enter the Quantity : `, 0));
+          AfternoonTime += quantity;
+        } else if (category == "E") {
+          quantity = parseInt(prompt(`Enter the Quantity : `, 0));
+          EveningTime += quantity;
+        } else {
+          document.write("Enter the valid category<br>");
+          break;
+        }
+        Total_cards = MorningTime + AfternoonTime + EveningTime;
+        category = prompt(
+          "Enter your Time of visit here(M for Morning, A for Afternoon and E for Evening Q for Quit): ",
+          ""
+        );
+      }
+      document.write(`Total Quantity of cards at MorningTime : ${MorningTime}<br/>
+        Total Quantity of cards at AfternoonTime : ${AfternoonTime}<br/>
+        Total Quantity of cards at EveningTime : ${EveningTime}<br/>
+        Total Quantity of cards: ${Total_cards}<br/>`);
+    </script>
+  </body>
+</html>
