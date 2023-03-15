@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      let reverseWord = 0,
+        TotWord = "",
+        reverseTotWord;
+
+      reverseWord = prompt("Enter your word here: ", "");
+
+      while (reverseWord != "Q") {
+        TotWord = TotWord + " " + reverseWord;
+        reverseWord = prompt("Enter your word here: ");
+      }
+
+      function reverseString(revWord) {
+        WordSplit = revWord.split(" ").reverse().join(" ");
+      }
+
+      reverseString(TotWord);
+
+      document.write(
+        `Reverse Word will be of "${TotWord}" will be "${WordSplit}."`
+      );
+    </script>
+  </body>
+</html>
