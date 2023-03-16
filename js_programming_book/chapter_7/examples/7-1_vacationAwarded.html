@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      let numVacations, numHotelStays, numFlights;
+      let canVacations, canFlights, canHotels;
+      let vacationAwarded = true;
+
+      document.write("ABC Travel Agency <br />");
+
+      numVacations = parseInt(
+        prompt("Enter the no. of vacations you booked: ", 0)
+      );
+      numHotelStays = parseInt(
+        prompt("Enter the no. of HotelStays you booked: ", 0)
+      );
+      numFlights = parseInt(prompt("Enter the no. of Flights you booked: ", 0));
+
+      canVacations = parseInt(
+        prompt("Enter the no. of vacations you cancelled: ", 0)
+      );
+      canFlights = parseInt(
+        prompt("Enter the no. of Flights you cancelled: ", 0)
+      );
+      canHotels = parseInt(
+        prompt("Enter the no. of Hotels you cancelled: ", 0)
+      );
+
+      if (
+        vacationAwarded ==
+        (numVacations >= 3 &&
+          (numHotelStays >= 1 || numFlights >= 1) &&
+          (canVacations || canHotels || canFlights) == 0)
+      ) {
+        document.write("You have unroll a free vacation trip");
+      } else {
+        document.write(
+          "Sorry !! You are not eligible for a free vacation trip"
+        );
+      }
+    </script>
+  </body>
+</html>
