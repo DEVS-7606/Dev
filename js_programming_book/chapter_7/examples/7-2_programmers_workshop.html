@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Welcome to Not Quite Free Throws</h1>
+    <h2 id="Product Prices"></h2>
+    Number of flying disc :
+    <input type="number" name="Flying_disc" id="Flyingdisc" value="0" /><br />
+    Number of Boomerang :
+    <input type="number" name="Boomerang" id="Boom" value="0" /><br />
+
+    <input
+      type="button"
+      name="Order"
+      value="Order Here"
+      onclick="displayOrder()"
+    /><br />
+    <h3 id="Order Display"></h3>
+
+    <script>
+      let FlyingDisc = 4.98,
+        BoomeRang = 3.98,
+        RegularShipping;
+
+      document.getElementById(
+        "Product Prices"
+      ).innerHTML = ` Prices of Flying Disc are  $${FlyingDisc}<br /> Prices of Boomerang are $${BoomeRang} <br />`;
+
+      function displayOrder() {
+        let NumOfFlyD = parseInt(document.getElementById("Flyingdisc").value);
+        let NumofBoo = parseInt(document.getElementById("Boom").value);
+
+        let TotalProduct = NumOfFlyD + NumofBoo;
+
+        let OrderedFlyD = NumOfFlyD * FlyingDisc;
+        let OrderedBoo = NumofBoo * BoomeRang;
+
+        let TotPurcase = OrderedFlyD + OrderedBoo;
+        let TotOrder;
+
+        if ((NumOfFlyD >= 1 && NumofBoo >= 1) || TotalProduct >= 3) {
+          RegularShipping = 0.0;
+          TotOrder = TotPurcase + RegularShipping;
+        } else {
+          RegularShipping = 5.0;
+          TotOrder = TotPurcase + RegularShipping;
+        }
+
+        document.getElementById(
+          "Order Display"
+        ).innerHTML = `ORDER DETAILS:-<br />Total Purcase: $${TotPurcase.toFixed(
+          2
+        )}<br />Shipping Cost: $${RegularShipping}<br />Total Order: $${TotOrder.toFixed(
+          2
+        )}`;
+      }
+    </script>
+  </body>
+</html>
