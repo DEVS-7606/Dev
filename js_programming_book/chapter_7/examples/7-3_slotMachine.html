@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var Text_Cherry = "CHERRY",
+        Text_Lemon = "LEMON",
+        Text_Orange = "ORANGE",
+        Text_Lime = "LIME",
+        Text_Banana = "BANANA";
+
+      var Jackpot = "3 of a kind! JACKPOT!",
+        Result2KIND = "2 of a kind!",
+        NoPrize = "No Prize";
+
+      function playSlots() {
+        random1 = Math.floor(Math.random() * 5) + 1;
+        switch (random1) {
+          case 1:
+            document.SlotForm.box1.value = Text_Cherry;
+            break;
+
+          case 2:
+            document.SlotForm.box1.value = Text_Lemon;
+            break;
+
+          case 3:
+            document.SlotForm.box1.value = Text_Orange;
+            break;
+
+          case 4:
+            document.SlotForm.box1.value = Text_Lime;
+            break;
+
+          case 5:
+            document.SlotForm.box1.value = Text_Banana;
+            break;
+        }
+
+        random2 = Math.floor(Math.random() * 5) + 1;
+        switch (random2) {
+          case 1:
+            document.SlotForm.box2.value = Text_Cherry;
+            break;
+
+          case 2:
+            document.SlotForm.box2.value = Text_Lemon;
+            break;
+
+          case 3:
+            document.SlotForm.box2.value = Text_Orange;
+            break;
+
+          case 4:
+            document.SlotForm.box2.value = Text_Lime;
+            break;
+
+          case 5:
+            document.SlotForm.box2.value = Text_Banana;
+            break;
+        }
+        random3 = Math.floor(Math.random() * 5) + 1;
+        switch (random3) {
+          case 1:
+            document.SlotForm.box3.value = Text_Cherry;
+            break;
+
+          case 2:
+            document.SlotForm.box3.value = Text_Lemon;
+            break;
+
+          case 3:
+            document.SlotForm.box3.value = Text_Orange;
+            break;
+
+          case 4:
+            document.SlotForm.box3.value = Text_Lime;
+            break;
+
+          case 5:
+            document.SlotForm.box3.value = Text_Banana;
+            break;
+        }
+
+        if (random1 == random2 && random1 == random3) {
+          document.SlotForm.result.value = Jackpot;
+        } else if (
+          random1 == random2 ||
+          random1 == random3 ||
+          random2 == random3
+        ) {
+          document.SlotForm.result.value = Result2KIND;
+        } else {
+          document.SlotForm.result.value = NoPrize;
+        }
+      }
+    </script>
+    <form name="SlotForm" action="">
+      <input type="text" name="box1" value="Box1" size="10" /><br />
+      <input type="text" name="box2" value="Box2" size="10" /><br />
+      <input type="text" name="box3" value="Box3" size="10" /><br />
+
+      <input
+        type="button"
+        name="play"
+        value="Click Here to play"
+        onclick="playSlots()"
+      /><br />
+
+      <input type="text" name="result" value="" size="24" />
+    </form>
+  </body>
+</html>
