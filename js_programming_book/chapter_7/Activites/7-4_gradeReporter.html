@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      let StudentPer = parseFloat(prompt("Enter Student percentage here: ", 0)),
+        AbsentAttend = parseInt(prompt("Enter Student Absent here: ", 0));
+
+      console.log(StudentPer);
+      if (AbsentAttend > 5) {
+        document.write("You Are Failed !!!<br/>");
+      } 
+      else{
+        if(AbsentAttend<=2){
+        StudentPer += 3;}
+      switch (true) {
+        case StudentPer >= 90 && StudentPer <= 100:
+          document.write(`The Grade of Student is A <br/>`);
+          break;
+        case StudentPer >= 80 && StudentPer <= 89.9:
+          document.write(`The Grade of Student is B <br/>`);
+          break;
+        case StudentPer >= 70 && StudentPer <= 79.9:
+          document.write(`The Grade of Student is C <br/>`);
+          break;
+        case StudentPer >= 60 && StudentPer <= 69.9:
+          document.write(`The Grade of Student is D <br/>`);
+          break;
+        case StudentPer < 60:
+          document.write(`You are failed <br/>`);
+        default:
+            document.write("Invalid Option <br>");
+      }
+    }
+    </script>
+  </body>
+</html>
