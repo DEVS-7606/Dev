@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      document.write("Welcome to UpperCrust College Page !!! <br />");
+      let Name, Score, ParentAlu, NumAlumni, FamIncome;
+
+      Name = prompt("Enter Your Name: ", "");
+      Score = parseInt(prompt("Enter your SAT score: ", 0));
+      ParentAlu = prompt("Is any of your parent are Alumnus ?", "Y");
+      FamIncome = parseInt(prompt("Enter Your Family Status: ", 0));
+
+      // if (ParentAlu == "Y") {
+      //   NumAlumni = parseInt(
+      //     prompt("Enter 1 (if any one parent is alumni) or 2(if both are): ", 0)
+      //   );
+      // } else {
+      //   NumAlumni = 0;
+      // }
+
+      if (Score >= 1400) {
+        document.write("Congratulations your application is selected <br />");
+        if (FamIncome < 100000) {
+          document.write("Congratulations you have also got Scholarship too!!");
+        } else {
+          document.write("Welcome to UpperCrust College!!");
+        }
+      } else if (Score >= 1200 && ParentAlu == "Y") {
+        NumAlumni = parseInt(
+          prompt("Enter 1 (if any one parent is alumni) or 2(if both are): ", 0)
+        );
+        if (NumAlumni >= 1) {
+          document.write("Congratulations your application is selected <br />");
+          if (FamIncome < 100000) {
+            document.write(
+              "Congratulations you have also got Scholarship too!!"
+            );
+          } else {
+            document.write("Welcome to UpperCrust College!!");
+          }
+        } else {
+          NumAlumni = 0;
+        }
+      } else if (Score >= 1200 && FamIncome >= 100000) {
+        document.write("Congratulations your application is selected <br />");
+      } else {
+        document.write("Sorry!! You are not eligible...");
+      }
+    </script>
+  </body>
+</html>
