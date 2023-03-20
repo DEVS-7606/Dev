@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let winningNum,
+        userGuess,
+        index = 3;
+
+      winningNum = Math.random().toFixed(1) * 10;
+      console.log(winningNum);
+
+      while (index != 0) {
+        console.log(index);
+        userGuess = parseInt(
+          prompt("Enter Your Guess Here(Guess between 0 to 10 ):", 0)
+        );
+
+        if (userGuess < winningNum) {
+          alert(`Your Number is smaller than Given number`);
+          alert(`Guesses Left: ${index}`);
+        } else if (userGuess > winningNum) {
+          alert(`Your Number is bigger than Given number`);
+          alert(`Guesses Left: ${index}`);
+        } else if (userGuess == winningNum) {
+          alert("Congratulations!!! You had guessed right");
+          alert(`Guesses Left: ${index}`);
+          break;
+        } else {
+          alert("Game Over");
+        }
+        index -= 1;
+      }
+    </script>
+  </body>
+</html>
