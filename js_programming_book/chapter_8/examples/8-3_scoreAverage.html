@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function average() {
+        let inputNum,
+          quantity,
+          total = 0,
+          index,
+          avg = 0;
+
+        quantity = parseInt(prompt("HOW MANY NUMBERS WILL YOU INPUT ?"));
+
+        for (index = 1; index <= quantity; index++) {
+          inputNum = parseInt(prompt(`ENTER NUMBER ${index} :`, 0));
+          total += inputNum;
+        }
+        avg = total / quantity;
+        return avg;
+      }
+
+      let hwAvg, quizvg;
+
+      document.write("This program calculates the average <br>");
+      document.write("for any quantity of numbers <br>");
+
+      document.write("First, Enter Homework scores: <br>");
+      hwAvg = average();
+      document.write(`Average homework score: ${hwAvg}<br>`);
+
+      document.write("Next, Enter quiz scores: <br>");
+      quizAvg = average();
+      document.write(`Average quiz score: ${quizAvg}<br>`);
+
+      document.write("Thank you!!!");
+    </script>
+  </body>
+</html>
