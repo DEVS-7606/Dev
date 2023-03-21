@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      let userInput,
+        index,
+        factorial = 1;
+      userInput = parseInt(prompt("Enter Number here: "));
+
+      result = factorialNum(userInput);
+      displayInfo(userInput, result);
+
+      function factorialNum(userInput) {
+        for (index = userInput; index >= 1; index--) {
+          factorial *= index;
+        }
+        return factorial;
+      }
+
+      function displayInfo(userInput, Num) {
+        document.write(`The Factorial of ${userInput} is ${Num}<br />`);
+      }
+    </script>
+  </body>
+</html>
