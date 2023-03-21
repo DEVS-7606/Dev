@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      class ShoeRental {
+        constructor(
+          shoeID,
+          shoeSize,
+          fistName,
+          lastName,
+          rentalDate,
+          rentalTime,
+          numGames,
+          rentalCost
+        ) {
+          this.shoeID = shoeID;
+          this.shoeSize = parseInt(shoeSize);
+          this.fistName = fistName;
+          this.lastName = lastName;
+          this.rentalDate = rentalDate;
+          this.rentalTime = rentalTime;
+          this.numGames = parseInt(numGames);
+          this.rentalCost = rentalCost;
+        }
+
+        ShoeRental() {}
+        computeRentalCost(games) {
+          let COST_PER_GAME = 2;
+          let cost;
+          cost = games * COST_PER_GAME;
+          return cost;
+        }
+
+        displayInfo() {
+          document.write(
+            `Renter's name: ${this.fistName} ${this.lastName}<br />
+            Shoe ID: ${this.shoeID}<br />
+            Shoe Size: ${this.shoeSize}<br />
+            Rental Date: ${this.rentalDate}<br />
+            Rental Time: ${this.rentalTime}<br />
+            Number of games bowled: ${this.numGames}<br />
+            Cost of Rental: ${this.rentalCost}<br />`
+          );
+        }
+      }
+      document.write("Welcome to Lanes Galore Shoe Rentals <br />");
+
+      let ShoeID = prompt("Enter the Shoe ID number: ", "");
+      let ShoeSize = prompt("Enter The Shoe Size: ", 8);
+      let FirstName = prompt("Enter renter's First name:", "");
+      let LastName = prompt("Enter renter's Last name: ", "");
+      let RentalDate = prompt("Enter Date(DD/MM/YYYY): ", "00 / 00 / 0000");
+      let RentalTime = prompt("Enter Time (HH:MM): ", "00:00");
+      let NumGames = prompt("How many games is renter bowling ?", 1);
+
+      let newCust = new ShoeRental();
+
+      let RentalCost = newCust.computeRentalCost(NumGames);
+
+      let nextCustomer = new ShoeRental(
+        ShoeID,
+        ShoeSize,
+        FirstName,
+        LastName,
+        RentalDate,
+        RentalTime,
+        NumGames,
+        RentalCost
+      );
+      nextCustomer.displayInfo();
+
+      document.write("Thank You!!!<br />");
+    </script>
+  </body>
+</html>
