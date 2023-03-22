@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      let menuChoice;
+
+      document.write("School Games Menu<br>");
+
+      do {
+        menuChoice = displayMenu();
+        menuChoice = menuChoice.toUpperCase();
+
+        if (menuChoice == "A") {
+          arithmeticMenu();
+        } else if (menuChoice == "G") {
+          geographyMenu();
+        } else if (menuChoice != "X") {
+          document.write("Invalid selection:<br>");
+          document.wirte("Please enter A,G, or X:<br>");
+        }
+      } while (menuChoice != "X");
+
+      document.write("Goodbye!!<br>");
+
+      function displayMenu() {
+        choice = prompt(
+          "Enter A to play Arithmetic games,\nG to play Geography games or X to exit this program.",
+          ""
+        );
+
+        return choice;
+      }
+
+      function arithmeticMenu() {
+        let subMenuChoice;
+
+        do {
+          subMenuChoice = displayArithmeticMenu();
+          subMenuChoice = subMenuChoice.toUpperCase();
+
+          if (subMenuChoice == "A") {
+            playAddition();
+          } else if (subMenuChoice == "S") {
+            playSubtraction();
+          } else if (subMenuChoice != "X") {
+            document.write("Invalid selection:<br>");
+            document.write("Please enter A,S, or X:<br>");
+          }
+        } while (menuChoice != "X");
+
+        // return displayMenu();
+      }
+
+      function displayArithmeticMenu() {
+        choice = prompt(
+          "Enter A to play Addition game,\n S to play Subtraction game or X to exit this program.",
+          ""
+        );
+
+        return choice;
+      }
+
+      function geographyMenu() {
+        let subMenuChoice;
+
+        do {
+          subMenuChoice = displayGeographyMenu();
+          subMenuChoice = subMenuChoice.toUpperCase();
+
+          if (subMenuenuChoice == "G") {
+            playGuessTheCountry();
+          } else if (subMenuChoice == "N") {
+            playNameTheCapital();
+          } else if (subMenuChoice != "X") {
+            document.write("Invalid selection:<br>");
+            document.wirte("Please enter G,N, or X:<br>");
+          }
+        } while (menuChoice != "X");
+      }
+
+      function displayGeographyMenu() {
+        choice = prompt(
+          "Enter A to play Ghe Country game,\nG to play Name the capital game or X to exit this program.",
+          ""
+        );
+
+        return choice;
+      }
+
+      function playAddition() {
+        let num1, num2, correctSum, userGuess;
+
+        num1 = Math.random().toFixed(2) * 100;
+        console.log(num1);
+        num2 = Math.random().toFixed(2) * 100;
+        console.log(num2);
+
+        correctSum = num1 + num2;
+
+        userGuess = parseInt(prompt(`What is ${num1} + ${num2} ?`, 0));
+
+        if (userGuess == correctSum) {
+          document.write("This is correct!<br>");
+        } else {
+          document.write("Sorry.the correct answer is ", correctSum, "<br>");
+        }
+      }
+
+      function playSubtraction() {
+        let num1, num2, correctDiff, userGuess;
+
+        num1 = Math.random().toFixed(2) * 100;
+        console.log(num1);
+        num2 = Math.random().toFixed(2) * 100;
+        console.log(num2);
+
+        if (num2 > num1) {
+          temp = num1;
+          num1 = num2;
+          num2 = temp;
+        }
+
+        correctDiff = num1 - num2;
+
+        userGuess = parseInt(prompt(`What is ${num1} - ${num2} ?`, 0));
+
+        if (userGuess == correctDiff) {
+          document.write("This is correct!<br>");
+        } else {
+          document.write("Sorry.the correct answer is ", correctDiff, "<br>");
+        }
+      }
+
+      function playGuessTheCountry() {
+        let city, correctCountry, userGuess, randomNum;
+
+        randomNum = (Math.random().toFixed(1) * 10) / 2;
+        console.log(randomNum);
+
+        switch (randomNum) {
+          case 1: {
+            city = "Humburg";
+            correctCountry = "Germany";
+          }
+          case 2: {
+            city = "Osaka";
+            correctCountry = "Japan";
+          }
+          case 3: {
+            city = "LiverPool";
+            correctCountry = "England";
+          }
+          case 4: {
+            city = "Rio";
+            correctCountry = "Brazil";
+          }
+        }
+        userGuess = prompt(`In what country is ${city} located ?`, "");
+        userGuess = userGuess.toUpperCase();
+
+        if (userGuess == correctCountry) {
+          document.write("Correct!!!<br>");
+        } else {
+          document.write(`Sorry!!.the correct answer is ${correctCountry}<br>`);
+        }
+      }
+
+      function playNameTheCapital() {
+        let country, correctCapital, userGuess, randomNum;
+
+        randomNum = (Math.random().toFixed(1) * 10) / 2;
+        console.log(randomNum);
+
+        switch (randomNum) {
+          case 1: {
+            country = "Afg";
+            correctCapital = "Kabul";
+          }
+          case 2: {
+            country = "Austria";
+            correctCapital = "Vienna";
+          }
+          case 3: {
+            country = "Canada";
+            correctCapital = "ottawa";
+          }
+          case 4: {
+            city = "Finland";
+            correctCountry = "helsinki";
+          }
+        }
+        userGuess = prompt(`What is the capital of ${country} ?`, "");
+        userGuess = userGuess.toUpperCase();
+
+        if (userGuess == correctCountry) {
+          document.write("Correct!!!<br>");
+        } else {
+          document.write(`Sorry!!.the correct answer is ${correctCapital}<br>`);
+        }
+      }
+    </script>
+  </body>
+</html>
