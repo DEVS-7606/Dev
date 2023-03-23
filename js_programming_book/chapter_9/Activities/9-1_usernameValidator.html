@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var userName = prompt("Enter User Name here : ", "");
+
+      do {
+        if (userName != "") {
+          let newUser = containsNumber(userName);
+          function containsNumber(str) {
+            return /[0-9]/.test(str);
+          }
+
+          if (userName.length < 8) {
+            alert("please make username of 8 character!!!");
+          }
+          if (
+            userName.substring(0, 1) != userName.substring(0, 1).toUpperCase()
+          ) {
+            alert("please make First letter capital");
+          }
+          if (newUser == false) {
+            alert("please add numbers to make Username unique");
+          } else {
+            break;
+          }
+        } else {
+          alert("Please enter correct username!!!");
+        }
+        userName = prompt("Enter User Name here : ", "");
+      } while (userName != "");
+      document.write(`Your User Name is ${userName}<br />`);
+    </script>
+  </body>
+</html>
