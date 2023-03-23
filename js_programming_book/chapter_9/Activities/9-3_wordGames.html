@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      let menuChoice;
+
+      document.write("<h1>Welcome to Word Games!!!</h1>");
+
+      do {
+        menuChoice = displayMenu();
+        menuChoice = menuChoice.toUpperCase();
+
+        if (menuChoice == "C") {
+          countTheWords();
+        } else if (menuChoice == "B") {
+          spellInBackwards();
+        } else if (menuChoice != "X") {
+          alert("Invalid selection:<br>");
+          alert("Please enter C,B or X:<br>");
+        }
+      } while (menuChoice != "X");
+      document.write("GoodBye!!!");
+
+      function displayMenu() {
+        choice = prompt(
+          "Enter C to play count the words in a sentence game ,\n B to play spell the sentence backward game or X to exit this program.",
+          ""
+        );
+        return choice;
+      }
+
+      function countTheWords() {
+        let sentence = prompt("Enter Your Sentence Below :", "");
+
+        let subSentence = sentence.split(" ");
+
+        return document.write(subSentence.length());
+      }
+
+      function spellInBackwards() {
+        let sentence = prompt("Enter Your Sentence Below :", "");
+
+        let backwardSentence = sentence.split(" ").reverse().join(" ");
+
+        return document.write(backwardSentence);
+      }
+    </script>
+  </body>
+</html>
