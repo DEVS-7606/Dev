@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body bgcolor="lightgreen">
+    <h2>Sounds Right Customer Inquiry Form</h2>
+
+    <form name="InfoForm" action="">
+      <strong>Enter your name,address and e-mail :</strong><br />
+
+      First Name:<input type="text" name="firstName" value="" size="40" /><br />
+      Last Name:<input type="text" name="lastName" value="" size="40" /><br />
+      Street Address:<input
+        type="text"
+        name="streetAddress"
+        value=""
+        size="40"
+      /><br />
+      City:<input type="text" name="city" value="" size="30" /><br />
+      State:<input type="text" name="state" value="" size="2" /><br />
+      Zip:<input type="text" name="zip" value="" size="6" /><br />
+      E-mail:<input type="text" name="email" value="" size="40" /><br />
+      <input
+        type="button"
+        name="displayButton"
+        value="Display Info"
+        onclick="displayInfo()"
+      /><br />
+      <textarea
+        name="fullInfo"
+        readonly="true"
+        value=""
+        rows="8"
+        cols="50"
+      ></textarea
+      ><br />
+    </form>
+    <script type="text/javascript">
+      function displayInfo() {
+        var firstName = document.InfoForm.firstName.value;
+        var lastName = document.InfoForm.lastName.value;
+        var streetAddress = document.InfoForm.streetAddress.value;
+        var city = document.InfoForm.city.value;
+        var state = document.InfoForm.state.value;
+        var zip = document.InfoForm.zip.value;
+        var email = document.InfoForm.email.value;
+        var errMsg = "";
+
+        if (firstName.length <= 0) {
+          errMsg += "First name required.\n";
+        }
+        if (lastName.length <= 0) {
+          errMsg += "Last name required.\n";
+        }
+        if (streetAddress.length <= 0) {
+          errMsg += "Street address required.\n";
+        }
+        if (city.length <= 0) {
+          errMsg += "City required.\n";
+        }
+        if (state.length != 2) {
+          errMsg += "State code must be two letters.\n";
+        }
+        if (zip.length != 6) {
+          errMsg += "5-digit zip code required.\n";
+        }
+        if (isNaN(zip)) {
+          errMsg += "Zip code must include only digits.\n";
+        }
+        if (email.indexOf("@") <= 0) {
+          errMsg += "invalid e-mail address.\n";
+        }
+        if (email.indexOf(".") <= 0) {
+          errMsg += "invalid e-mail address.\n";
+        }
+
+        if (errMsg.length > 0) {
+          document.InfoForm.fullInfo.value = errMsg;
+        } else {
+          document.InfoForm.fullInfo.value = `HERE IS YOUR INFORMATION:\n\n 
+          YOUR NAME: ${firstName} ${lastName} \n 
+          ADDRESS: ${streetAddress} \n 
+          CITY,STATE,ZIP: ${city},${state},${zip}\n 
+          E-MAIL:${email}\n\n
+          Thank you for your interest!`;
+        }
+      }
+    </script>
+  </body>
+</html>
