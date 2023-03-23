@@ -25,7 +25,6 @@
           document.wirte("Please enter A,G, or X:<br>");
         }
       } while (menuChoice != "X");
-
       document.write("Goodbye!!<br>");
 
       function displayMenu() {
@@ -52,9 +51,7 @@
             document.write("Invalid selection:<br>");
             document.write("Please enter A,S, or X:<br>");
           }
-        } while (menuChoice != "X");
-
-        // return displayMenu();
+        } while (subMenuChoice != "X");
       }
 
       function displayArithmeticMenu() {
@@ -73,20 +70,20 @@
           subMenuChoice = displayGeographyMenu();
           subMenuChoice = subMenuChoice.toUpperCase();
 
-          if (subMenuenuChoice == "G") {
+          if (subMenuChoice == "G") {
             playGuessTheCountry();
           } else if (subMenuChoice == "N") {
             playNameTheCapital();
           } else if (subMenuChoice != "X") {
             document.write("Invalid selection:<br>");
-            document.wirte("Please enter G,N, or X:<br>");
+            document.write("Please enter G,N, or X:<br>");
           }
-        } while (menuChoice != "X");
+        } while (subMenuChoice != "X");
       }
 
       function displayGeographyMenu() {
         choice = prompt(
-          "Enter A to play Ghe Country game,\nG to play Name the capital game or X to exit this program.",
+          "Enter G to play the Country game,\n N to play Name the capital game or X to exit this program.",
           ""
         );
 
@@ -97,9 +94,7 @@
         let num1, num2, correctSum, userGuess;
 
         num1 = Math.random().toFixed(2) * 100;
-        console.log(num1);
         num2 = Math.random().toFixed(2) * 100;
-        console.log(num2);
 
         correctSum = num1 + num2;
 
@@ -116,9 +111,7 @@
         let num1, num2, correctDiff, userGuess;
 
         num1 = Math.random().toFixed(2) * 100;
-        console.log(num1);
         num2 = Math.random().toFixed(2) * 100;
-        console.log(num2);
 
         if (num2 > num1) {
           temp = num1;
@@ -140,25 +133,36 @@
       function playGuessTheCountry() {
         let city, correctCountry, userGuess, randomNum;
 
-        randomNum = (Math.random().toFixed(1) * 10) / 2;
-        console.log(randomNum);
+        randomNum = Math.floor(Math.random() * 5) + 1;
 
         switch (randomNum) {
           case 1: {
-            city = "Humburg";
-            correctCountry = "Germany";
+            city = "HUMBURG";
+            correctCountry = "GERMANY";
+            break;
           }
           case 2: {
-            city = "Osaka";
-            correctCountry = "Japan";
+            city = "OSAKA";
+            correctCountry = "JAPAN";
+            break;
           }
           case 3: {
-            city = "LiverPool";
-            correctCountry = "England";
+            city = "LIVERPOOL";
+            correctCountry = "ENGLAND";
+            break;
           }
           case 4: {
-            city = "Rio";
-            correctCountry = "Brazil";
+            city = "RIO";
+            correctCountry = "BRAZIL";
+            break;
+          }
+          case 5: {
+            city = "MUMBAI";
+            correctCountry = "INDIA";
+            break;
+          }
+          default: {
+            alert("Please Enter Value");
           }
         }
         userGuess = prompt(`In what country is ${city} located ?`, "");
@@ -174,31 +178,39 @@
       function playNameTheCapital() {
         let country, correctCapital, userGuess, randomNum;
 
-        randomNum = (Math.random().toFixed(1) * 10) / 2;
-        console.log(randomNum);
+        randomNum = Math.floor(Math.random() * 5) + 1;
 
         switch (randomNum) {
           case 1: {
-            country = "Afg";
-            correctCapital = "Kabul";
+            country = "AFGANISTAN";
+            correctCapital = "KABUL";
+            break;
           }
           case 2: {
-            country = "Austria";
-            correctCapital = "Vienna";
+            country = "AUSTRIA";
+            correctCapital = "VIENNA";
+            break;
           }
           case 3: {
-            country = "Canada";
-            correctCapital = "ottawa";
+            country = "CANADA";
+            correctCapital = "OTTAWA";
+            break;
           }
           case 4: {
-            city = "Finland";
-            correctCountry = "helsinki";
+            country = "FINLAND";
+            correctCapital = "HELSINKI";
+            break;
+          }
+          case 5: {
+            country = "INDIA";
+            correctCapital = "DELHI";
+            break;
           }
         }
         userGuess = prompt(`What is the capital of ${country} ?`, "");
         userGuess = userGuess.toUpperCase();
 
-        if (userGuess == correctCountry) {
+        if (userGuess == correctCapital) {
           document.write("Correct!!!<br>");
         } else {
           document.write(`Sorry!!.the correct answer is ${correctCapital}<br>`);
