@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let Size = 5000000,
+        index,
+        numberArray = new Array(Size),
+        userInp,
+        found = false,
+        high,
+        low,
+        numComparison = 0;
+
+      for (index = 0; index < Size; index++) {
+        numberArray[index] = index + 1;
+      }
+
+      userInp = parseInt(prompt("Enter Your number here:", 0));
+      index = 0;
+      low = 0;
+      high = Size;
+
+      while (index < Size && !found == true) {
+        index = Math.floor((low + high) / 2);
+        numComparison += 1;
+        if (userInp == numberArray[index]) {
+          found = true;
+          document.write(`Match found at subscript: ${index}<br/>`);
+          // break;
+        } else {
+          if (numberArray[index] > userInp) {
+            high = index - 1;
+          } else {
+            low = index + 1;
+          }
+        }
+        index += 1;
+      }
+      document.write(`No. of comparisons: ${numComparison}`);
+    </script>
+  </body>
+</html>
