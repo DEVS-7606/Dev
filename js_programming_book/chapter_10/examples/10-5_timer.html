@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      let SIZE = 6000000,
+        index,
+        found = false,
+        numberArray,
+        searchNum,
+        numComparison,
+        d1,
+        d2,
+        diff,
+        low,
+        high;
+
+      numberArray = new Array(SIZE);
+
+      for (index = 0; index < SIZE; index++) {
+        numberArray[index] = index + 1;
+      }
+
+      searchNum = prompt(`Enter a number between 1 and 5000000: `, 0);
+
+      index = 0;
+      numComparison = 0;
+      d1 = new Date();
+
+      while (index < SIZE && !found) {
+        numComparison++;
+        if (numberArray[index] == searchNum) {
+          d2 = new Date();
+          found = true;
+          document.write(`Match found at sub script: ${index} .<br>`);
+        }
+        index++;
+      }
+      if (!found) {
+        d2 = new Date();
+        document.write("Sorry,no match found!!!<br>");
+      }
+
+      diff = d2 - d1;
+      document.write(`Sequential search: in milliseconds: ${diff}<br>`);
+      document.write(`Number of Comparisons: ${numComparison}<br><br>`);
+
+      found = false;
+      low = 0;
+      high = SIZE;
+      index = Math.floor((low + high) / 2);
+      numComparison = 0;
+      d1 = new Date();
+
+      while (low <= high && !found) {
+        numComparison++;
+        if (numberArray[index] == searchNum) {
+          d2 = new Date();
+          found = true;
+          document.write(`Match found at subscript: ${index}.<br>`);
+        } else {
+          if (numberArray[index] > searchNum) {
+            high = index - 1;
+          } else {
+            low = index + 1;
+          }
+          index = Math.floor((low + high) / 2);
+        }
+      }
+      if (!found) {
+        d2 = new Date();
+        document.write("Sorry,no match found. ");
+      }
+
+      diff = d2 - d1;
+      document.write(`Binary search:in milliseconds: ${diff}<br>`);
+      document.write(`Number of comparisons: ${numComparison}<br><br>`);
+    </script>
+  </body>
+</html>
