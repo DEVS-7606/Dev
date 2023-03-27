@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      let Size = 500,
+        index,
+        numberArray = new Array(Size),
+        userInp,
+        found = false;
+
+      for (index = 0; index <= Size; index++) {
+        numberArray[index] = index ** 2;
+      }
+
+      userInp = parseInt(prompt("Enter Your number here:", 0));
+      index = 0;
+
+      while (index <= Size && !found == true) {
+        if (userInp == numberArray[index]) {
+          found = true;
+          document.write(`${userInp} is a square of ${index}<br/>`);
+          document.write(`No. of comparisons: ${index}<br/>`);
+          break;
+        }
+        index += 1;
+      }
+      if (!found == true) {
+        document.write(`Sorry!!! No match found<br/>`);
+        document.write(`No. of comparisons: ${index}<br/>`);
+      }
+    </script>
+  </body>
+</html>
