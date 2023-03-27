@@ -8,7 +8,7 @@
   </head>
   <body>
     <script type="text/javascript">
-      let menuChoice;
+      let menuChoice = "";
 
       document.write("School Games Menu<br>");
 
@@ -21,8 +21,8 @@
         } else if (menuChoice == "G") {
           geographyMenu();
         } else if (menuChoice != "X") {
-          document.write("Invalid selection:<br>");
-          document.wirte("Please enter A,G, or X:<br>");
+          alert("Invalid selection:<br>");
+          alert("Please enter A,G, or X:<br>");
         }
       } while (menuChoice != "X");
       document.write("Goodbye!!<br>");
