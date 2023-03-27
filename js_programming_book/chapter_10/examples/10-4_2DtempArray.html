@@ -9,13 +9,13 @@
   <body>
     <script type="text/javascript">
       let WEEKS = 3,
-        DAYS = 3,
-        temps = new Array(WEEKS * DAYS),
+        DAYS = 7,
+        temps = [[], [], []],
         weekIndex,
         dayIndex;
       for (weekIndex = 0; weekIndex < WEEKS; weekIndex++) {
         for (dayIndex = 0; dayIndex < DAYS; dayIndex++) {
-          temps([weekIndex][dayIndex]) = parseInt(
+          temps[weekIndex][dayIndex] = parseInt(
             prompt(
               `Enter the tempersture for week ${weekIndex + 1}, Day${
                 dayIndex + 1
@@ -29,7 +29,7 @@
       for (weekIndex = 0; weekIndex < WEEKS; weekIndex++) {
         document.write(`Temperature for Week ${weekIndex + 1} :`);
         for (dayIndex = 0; dayIndex < DAYS; dayIndex++) {
-          document.write(`${temps([weekIndex][dayIndex])} `);
+          document.write(`${temps[weekIndex][dayIndex]} `);
         }
         document.write("<br/>");
       }
