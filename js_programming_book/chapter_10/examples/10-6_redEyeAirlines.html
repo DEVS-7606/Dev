@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>RedEye Airlines Flight Information Form</h2>
+    <form name="InfoForm" action="">
+      <p>
+        Select your starting city:<br />
+        <select name="startingCity">
+          <option value="DELHI">Delhi</option>
+          <option value="MUMBAI">Mumbai</option>
+          <option value="AHMEDABAD">Ahmedabad</option>
+          <option value="BHUJ">Bhuj</option>
+          <option value="PUNE">Pune</option>
+        </select>
+      </p>
+
+      <p>
+        Select your destination city:<br />
+        <select name="endingCity">
+          <option value="DELHI">Delhi</option>
+          <option value="MUMBAI">Mumbai</option>
+          <option value="AHMEDABAD">Ahmedabad</option>
+          <option value="BHUJ">Bhuj</option>
+          <option value="PUNE">Pune</option>
+        </select>
+      </p>
+
+      <input
+        type="button"
+        name="goButton"
+        value="Find Flights"
+        onclick="searchArray()"
+      /><br />
+
+      <textarea
+        name="flightBox"
+        readonly="true"
+        value=""
+        rows="6"
+        cols="80"
+      ></textarea
+      ><br />
+    </form>
+    <script>
+      let SIZE = 20,
+        index,
+        fromCityName,
+        toCityName,
+        startCity,
+        endCity,
+        flightNumber,
+        pricePerPerson;
+
+      startCity = new Array(
+        "AHMEDABAD",
+        "PUNE",
+        "MUMBAI",
+        "BHUJ",
+        "DELHI",
+        "AHMEDABAD",
+        "PUNE",
+        "BHUJ",
+        "MUMBAI",
+        "DELHI",
+        "PUNE",
+        "BHUJ",
+        "AHMEDABAD",
+        "PUNE",
+        "MUMBAI",
+        "DELHI",
+        "BHUJ",
+        "DELHI",
+        "MUMBAI",
+        "AHMEDABAD"
+      );
+
+      endCity = new Array(
+        "DELHI",
+        "DELHI",
+        "DELHI",
+        "DELHI",
+        "MUMBAI",
+        "MUMBAI",
+        "MUMBAI",
+        "MUMBAI",
+        "AHMEDABAD",
+        "AHMEDABAD",
+        "AHMEDABAD",
+        "AHMEDABAD",
+        "BHUJ",
+        "BHUJ",
+        "BHUJ",
+        "BHUJ",
+        "PUNE",
+        "PUNE",
+        "PUNE",
+        "PUNE"
+      );
+
+      flightNumber = new Array(
+        "RE103",
+        "RE105",
+        "RE107",
+        "RE109",
+        "RE305",
+        "RE309",
+        "RE301",
+        "RE507",
+        "RE509",
+        "RE501",
+        "RE503",
+        "RE709",
+        "RE701",
+        "RE703",
+        "RE705",
+        "RE901",
+        "RE903",
+        "RE905",
+        "RE907"
+      );
+
+      pricePerPerson = new Array(
+        3400,
+        3450,
+        4000,
+        3000,
+        5600,
+        6000,
+        4500,
+        5000,
+        3500,
+        3000,
+        4000,
+        5000,
+        5200,
+        4500,
+        4200,
+        4400,
+        4600,
+        4800,
+        5000,
+        4300
+      );
+      function searchArray() {
+        document.InfoForm.flightBox.value =
+          "Welcome to RedEye Airlines:" + "All flights leave at 2:00 am\n\n";
+
+        fromCityName = document.InfoForm.startingCity.value;
+        toCityName = document.InfoForm.endingCity.value;
+
+        if (fromCityName == toCityName) {
+          document.InfoForm.flightBox.value =
+            "Starting and destination city can't be the same.\n";
+        } else {
+          for (index = 0; index < SIZE; index++) {
+            if (
+              startCity[index] == fromCityName &&
+              endCity[index] == toCityName
+            ) {
+              document.InfoForm.flightBox.value = `${startCity[index]} TO ${
+                endCity[index]
+              } ,Flight ${
+                flightNumber[index]
+              },Price per person: ${pricePerPerson[index].toFixed(2)}\n`;
+            }
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
