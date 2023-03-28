@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      let inputNum,
+        numEntries,
+        uniqueNums,
+        count,
+        index,
+        found,
+        maxFrequency,
+        maxLocation,
+        freq,
+        numModes;
+
+      uniqueNums = -1;
+
+      numEntries = parseInt(prompt("How many numbers will you enter?", 0));
+
+      let numbersEntered = new Array(numEntries);
+      let frequency = new Array(numEntries);
+
+      for (count = 0; count <= numEntries - 1; count++) {
+        inputNum = parseFloat(prompt("Enter a number here:", 0));
+        found = false;
+        for (index = 0; index <= uniqueNums; index++) {
+          if (inputNum == numbersEntered[index]) {
+            frequency[index]++;
+            found = true;
+          }
+        }
+
+        if (!found) {
+          uniqueNums++;
+          numbersEntered[uniqueNums] = inputNum;
+          frequency[uniqueNums] = 1;
+        }
+      }
+
+      maxFrequency = 0;
+
+      for (index = 0; index <= uniqueNums; index++) {
+        if (frequency[index] > maxFrequency) {
+          maxFrequency = frequency[index];
+          maxLocation = index;
+        }
+      }
+
+      numModes = 0;
+
+      for (index = 0; index <= uniqueNums; index++) {
+        if (frequency[index] == maxFrequency) {
+          numModes++;
+        }
+      }
+
+      if (maxFrequency <= 1) {
+        document.write(
+          "There is no mode.No number occurred more than once.<br>"
+        );
+      } else if (numModes > 1) {
+        document.write("There are multiple modes.<br>");
+        for (index = 0; index <= uniqueNums; index++) {
+          freq = frequency[index];
+          if (freq == maxFrequency) {
+            document.write(
+              `${numbersEntered[index]} occurred ${freq} times<br>`
+            );
+          }
+        }
+      } else {
+        document.write(`This mode is: ${numbersEntered[maxLocation]}<br>`);
+        document.write(`Number of times occurring: ${maxFrequency}<br>`);
+      }
+
+      document.write(`Thank You!!!<br>`);
+    </script>
+  </body>
+</html>
