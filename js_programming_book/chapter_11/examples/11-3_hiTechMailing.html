@@ -146,13 +146,13 @@
         }
 
         currentPos = sub;
-        document.Mail.message.value = currentPos + 1;
+        document.Mail.message.value = currentPos;
         document.Mail.lastName.value = lastName[sub];
         document.Mail.firstName.value = firstName[sub];
         document.Mail.city.value = city[sub];
         document.Mail.state.value = state[sub];
 
-        document.Mail.record.value = sub + 1;
+        document.Mail.record.value = sub;
 
         if (sub > SIZE) {
           sub = 0;
