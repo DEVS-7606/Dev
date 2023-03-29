@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let character = prompt("Enter your Character here:", "");
+      let cols = parseInt(prompt("Enter the number of Columns here:", 0));
+      let rows = parseInt(prompt("Enter the number of Rows here:", 0));
+      let i, j;
+
+      for (i = 0; i < cols; i++) {
+        for (j = 0; j < rows; j++) {
+          document.write(`${character}`);
+        }
+        document.write("<br>");
+      }
+    </script>
+  </body>
+</html>

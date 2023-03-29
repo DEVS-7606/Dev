@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <font face="Courier New">
+        <script>
+            let character = prompt("Enter your Character here:", "");
+            let cols = parseInt(prompt("Enter the number of Columns here:"));
+            let rows = parseInt(prompt("Enter the number of Rows here:"));
+            let i, j;
+
+            for (i = 0; i < rows; i++) {
+                if (i == 0 || i == rows - 1) {
+                    for (j = 0; j < cols; j++) {
+                        document.write(character);
+                    }
+                } else {
+                    for (j = 0; j < cols; j++) {
+                        if (j == 0 || j == cols - 1) {
+                            document.write(character);
+                        } else {
+                            document.write("&nbsp;");
+                        }
+                    }
+                }
+                document.write("<br>");
+            }
+        </script>
+    </font>
+</body>
+
+</html>
