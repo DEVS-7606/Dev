@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .btn-group .button {
+      background-color: rgba(0, 0, 0, 0.9);
+      /* Green */
+      border: 1px solid rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 15px 20px;
+      font-size: 12px;
+      text-align: center;
+      width: 100px;
+    }
+
+    .btn-group .button:not(:last-child) {
+      border-bottom: none;
+      /* Prevent double borders */
+    }
+
+    .btn-group .button:hover {
+      background-color: rgb(0, 0, 0);
+    }
+  </style>
+</head>
+
+<body>
+  <h1 style="text-align: center">THE WATCH SELLER</h1>
+  <hr>
+  <div style="text-align: center">
+    <h2>Product Details</h2>
+    <form name="watchSeller" action>
+
+      <!-- Select Box -->
+      <select name="brands" id="brands" style="margin-right: 20px; margin-bottom: 10px;width:200px; "
+        onchange="brandAndprice(this.value)">
+        <option id="ROLEX">ROLEX-3600</option>
+        <option id="ARMANI">ARMANI-3000</option>
+        <option id="BULGARI">BULGARI-5400</option>
+        <option id="TITAN">TITAN-4500</option>
+        <option id="LV">LV-4200</option>
+        <option id="OMEGA">OMEGA-4000</option>
+        <option id="ROLEX">CASIO-2000</option>
+      </select>
+      <select id="quantity" onchange="Quantity(this.value)">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select><br /><br />
+
+      <!-- Add To Cart Button -->
+      <div class="btn-group">
+        <input type="button" class="button" name="button1" value="Add to Cart" onclick="AddToCart()" />
+      </div>
+    </form><br /><br />
+    <!-- ----------------------------------------------------------------------------------------------------------- -->
+    <textarea id="CartProduct" cols="60" rows="15"></textarea> <!--textarea-->
+    <h3 id="TotDisplay"></h3>
+    <hr>
+    <!-- ----------------------------------------------------------------------------------------------------------- -->
+    <form name="customerDetails" action="">
+      <h2>Customer Details:</h2>
+      <label><b>Name:</b></label>
+      <input type="text" id="customerName" name="customerName" value="" size="40"
+        onchange="validationTest('customerName',this.value)" />
+      <p id="nameError"></p>
+
+      <label><b>E-mail</b></label>
+      <input type="text" id="customerEmail" name="customerEmail" value="" size="40"
+        onchange="validationTest('customerEmail',this.value)" />
+      <p id="emailError"></p>
+
+      <label><b>Phone</b></label>
+      <input type="tel" id="customerNum" name="customerNum" value="" size="40"
+        onchange="validationTest('customerNum',this.value)" />
+      <p id="phoneError"></p><br>
+
+      <p id="successful"></p>
+      <div class="btn-group">
+        <input type="button" class="button" value="Place Order" onclick="CustomerInfo()" />
+      </div><br>
+      <!-- ------------------------------------------------------------------------------ -->
+      <textarea id="OrderDetails" cols="60" rows="20"></textarea><br><br>
+      <!-- ------------------------------------------------------------------------------------------------- -->
+      <div style="display: flex;flex-direction: row;justify-content: center;">
+        <input type="text" name="goTo" value="0" size="2"
+          style="width: 50px;height: 40px;margin-right:10px ;text-align: center;" />
+        <div class="btn-group">
+          <input type="button" class="button" value="Go To" />
+        </div>
+      </div><br><br>
+
+      <div class="btn-group">
+        <input type="button" class="button" name="first" value="First" />
+        <input type="button" class="button" name="prev" value="Previous" />
+        <input type="button" class="button" name="next" value="Next" />
+        <input type="button" class="button" name="last" value="Last" />
+      </div><br /><br />
+    </form>
+  </div>
+  <script src="shopping_cart1.js">
+    loadArrays();
+  </script>
+</body>
+
+</html>
