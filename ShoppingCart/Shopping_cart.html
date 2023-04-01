@@ -57,11 +57,12 @@
 
       <!-- Add To Cart Button -->
       <div class="btn-group">
-        <input type="button" class="button" name="button1" value="Add to Cart" onclick="AddToCart()" />
+        <input type="button" class="button" name="button1" value="Add to Cart" onclick="displayCart()" />
       </div>
     </form><br /><br />
     <!-- ----------------------------------------------------------------------------------------------------------- -->
-    <textarea id="CartProduct" cols="60" rows="15"></textarea> <!--textarea-->
+    <textarea id="CartProduct" cols="60" rows="15" readonly></textarea>
+    <!--textarea-->
     <h3 id="TotDisplay"></h3>
     <hr>
     <!-- ----------------------------------------------------------------------------------------------------------- -->
@@ -80,33 +81,36 @@
       <label><b>Phone</b></label>
       <input type="tel" id="customerNum" name="customerNum" value="" size="40"
         onchange="validationTest('customerNum',this.value)" />
-      <p id="phoneError"></p><br>
-
-      <p id="successful"></p>
-      <div class="btn-group">
-        <input type="button" class="button" value="Place Order" onclick="CustomerInfo()" />
+      <p id="phoneError"></p>
+      <!-- --------------------------------------------------------------------------------------- -->
+      <div class="btn-group" style="text-align: center;">
+        <input type="button" class="button" value="OrderDetails" onclick="displayCustomerInfo()" />
       </div><br>
       <!-- ------------------------------------------------------------------------------ -->
-      <textarea id="OrderDetails" cols="60" rows="20"></textarea><br><br>
-      <!-- ------------------------------------------------------------------------------------------------- -->
+      <textarea id="OrderDetails" cols="60" rows="20" readonly></textarea><br><br>
+      <!-- --------------------------------------------------------------------------------- -->
+      <div class="btn-group">
+        <input type="button" class="button" value="Place Order" onclick="placeOrder()" />
+      </div><br><br>
+      <!-- ----------------------------------------------------------------------------------------------------------- -->
       <div style="display: flex;flex-direction: row;justify-content: center;">
         <input type="text" name="goTo" value="0" size="2"
-          style="width: 50px;height: 40px;margin-right:10px ;text-align: center;" />
-        <div class="btn-group">
+          style="width: 50px;height: 40px;margin-right:5px ;text-align: center;" />
+        <div class="btn-group" style="margin-left:5px ">
           <input type="button" class="button" value="Go To" />
         </div>
-      </div><br><br>
-
+      </div><br>
+      <!-- ------------------------------------------------------------------------------------------------------- -->
       <div class="btn-group">
-        <input type="button" class="button" name="first" value="First" />
-        <input type="button" class="button" name="prev" value="Previous" />
-        <input type="button" class="button" name="next" value="Next" />
-        <input type="button" class="button" name="last" value="Last" />
+        <input type="button" class="button" name="first" value="First" onclick="loadForm(0)" />
+        <input type="button" class="button" name="prev" value="Previous" onclick="loadForm(-1)" />
+        <input type="button" class="button" name="next" value="Next" onclick="loadForm(-2)" />
+        <input type="button" class="button" name="last" value="Last" onclick="loadForm(-3)" />
       </div><br /><br />
     </form>
   </div>
   <script src="shopping_cart1.js">
-    loadArrays();
+    loadForm(0);
   </script>
 </body>
 
