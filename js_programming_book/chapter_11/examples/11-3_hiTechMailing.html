@@ -1,241 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script type="text/javascript">
-      let SIZE = 24,
-        index,
-        currentPos = 0,
-        lastName,
-        firstName,
-        city,
-        state;
 
-      function loadArrays() {
-        lastName = new Array(
-          "Adams",
-          "Joseph",
-          "Shah",
-          "Singh",
-          "Grover",
-          "Bush",
-          "Rana",
-          "Landry",
-          "Wilson",
-          "Iverson",
-          "Norman",
-          "Patel",
-          "Bam",
-          "Thakkar",
-          "Parikh",
-          "Pandit",
-          "Vora",
-          "Bhansali",
-          "Kapoor",
-          "Arora",
-          "Rajput",
-          "Rao",
-          "Kohli",
-          "Sharma"
-        );
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script type="text/javascript">
+    let SIZE = 24,
+      index,
+      currentPos = 0,
+      lastName,
+      firstName,
+      city,
+      state;
 
-        firstName = new Array(
-          "Wednesday",
-          "Merri",
-          "Bhuvan",
-          "Dev",
-          "Ved",
-          "Gopal",
-          "Utsav",
-          "Krunal",
-          "Madhav",
-          "Harsh",
-          "Yash",
-          "Aditya",
-          "Rajan",
-          "Vedant",
-          "Vivek",
-          "Vinay",
-          "Ugant",
-          "Neha",
-          "Vidhi",
-          "Sejal",
-          "Krina",
-          "Kiran",
-          "Maulik",
-          "Mitesh"
-        );
+    function loadArrays() {
+      lastName = new Array(
+        "Adams",
+        "Joseph",
+        "Shah",
+        "Singh",
+        "Grover",
+        "Bush",
+        "Rana",
+        "Landry",
+        "Wilson",
+        "Iverson",
+        "Norman",
+        "Patel",
+        "Bam",
+        "Thakkar",
+        "Parikh",
+        "Pandit",
+        "Vora",
+        "Bhansali",
+        "Kapoor",
+        "Arora",
+        "Rajput",
+        "Rao",
+        "Kohli",
+        "Sharma"
+      );
 
-        city = new Array(
-          "Agra",
-          "Amritsar",
-          "Bhopal",
-          "Chandigarh",
-          "Dehradun",
-          "Faridabad",
-          "Ghaziabad",
-          "Haldwani",
-          "Indore",
-          "Jaipur",
-          "Jammu",
-          "Kanpur",
-          "Kochi",
-          "Lucknow",
-          "Ludhiana",
-          "Mathura",
-          "Meerut",
-          "Mysore",
-          "Nagpur",
-          "Nashik",
-          "Panaji",
-          "Patiala",
-          "Pune",
-          "Raipur"
-        );
+      firstName = new Array(
+        "Wednesday",
+        "Merri",
+        "Bhuvan",
+        "Dev",
+        "Ved",
+        "Gopal",
+        "Utsav",
+        "Krunal",
+        "Madhav",
+        "Harsh",
+        "Yash",
+        "Aditya",
+        "Rajan",
+        "Vedant",
+        "Vivek",
+        "Vinay",
+        "Ugant",
+        "Neha",
+        "Vidhi",
+        "Sejal",
+        "Krina",
+        "Kiran",
+        "Maulik",
+        "Mitesh"
+      );
 
-        state = new Array(
-          "Andhra Pradesh",
-          "Arunachal Pradesh",
-          "Assam",
-          "Bihar",
-          "Chhattisgarh",
-          "Goa",
-          "Gujarat",
-          "Haryana",
-          "Himachal Pradesh",
-          "Jharkhand",
-          "Karnataka",
-          "Kerala",
-          "Madhya Pradesh",
-          "Maharashtra",
-          "Manipur",
-          "Meghalaya",
-          "Mizoram",
-          "Nagaland",
-          "Odisha",
-          "Punjab",
-          "Rajasthan",
-          "Sikkim",
-          "Tamil Nadu",
-          "Telangana"
-        );
+      city = new Array(
+        "Agra",
+        "Amritsar",
+        "Bhopal",
+        "Chandigarh",
+        "Dehradun",
+        "Faridabad",
+        "Ghaziabad",
+        "Haldwani",
+        "Indore",
+        "Jaipur",
+        "Jammu",
+        "Kanpur",
+        "Kochi",
+        "Lucknow",
+        "Ludhiana",
+        "Mathura",
+        "Meerut",
+        "Mysore",
+        "Nagpur",
+        "Nashik",
+        "Panaji",
+        "Patiala",
+        "Pune",
+        "Raipur"
+      );
 
-        loadForm(0);
+      state = new Array(
+        "Andhra Pradesh",
+        "Arunachal Pradesh",
+        "Assam",
+        "Bihar",
+        "Chhattisgarh",
+        "Goa",
+        "Gujarat",
+        "Haryana",
+        "Himachal Pradesh",
+        "Jharkhand",
+        "Karnataka",
+        "Kerala",
+        "Madhya Pradesh",
+        "Maharashtra",
+        "Manipur",
+        "Meghalaya",
+        "Mizoram",
+        "Nagaland",
+        "Odisha",
+        "Punjab",
+        "Rajasthan",
+        "Sikkim",
+        "Tamil Nadu",
+        "Telangana"
+      );
+
+      loadForm(0);
+    }
+
+    function loadForm(sub) {
+      if (sub == "" || sub == null || isNaN(sub)) {
+        sub = 0;
       }
 
-      function loadForm(sub) {
-        if (sub == "" || sub == null || isNaN(sub)) {
-          sub = 0;
-        }
+      if (sub == -1) {
+        sub = currentPos - 1;
+        if (sub < 0) sub = 0;
+      }
 
-        if (sub == -2) {
-          sub = currentPos - 1;
-          if (sub < 0) sub = 0;
-        }
+      if (sub == -2) {
+        sub = currentPos + 1;
+        if (sub >= SIZE) sub = SIZE - 1;
+      }
 
-        if (sub == -1) {
-          sub = currentPos + 1;
-          if (sub >= SIZE) sub = SIZE - 1;
-        }
+      if (sub == -3) {
+        sub = SIZE - 1;
+      }
 
-        if (sub == -3) {
-          sub = SIZE - 1;
-        }
+      currentPos = sub;
+      document.Mail.message.value = currentPos;
+      document.Mail.lastName.value = lastName[sub];
+      document.Mail.firstName.value = firstName[sub];
+      document.Mail.city.value = city[sub];
+      document.Mail.state.value = state[sub];
 
+      document.Mail.record.value = sub;
+
+      if (sub > SIZE) {
+        sub = 0;
         currentPos = sub;
         document.Mail.message.value = currentPos;
         document.Mail.lastName.value = lastName[sub];
         document.Mail.firstName.value = firstName[sub];
         document.Mail.city.value = city[sub];
         document.Mail.state.value = state[sub];
-
         document.Mail.record.value = sub;
 
-        if (sub > SIZE) {
-          sub = 0;
-          currentPos = sub;
-          document.Mail.message.value = currentPos;
-          document.Mail.lastName.value = lastName[sub];
-          document.Mail.firstName.value = firstName[sub];
-          document.Mail.city.value = city[sub];
-          document.Mail.state.value = state[sub];
-          document.Mail.record.value = sub;
-
-          alert("Please Enter Valid Input");
-        }
+        alert("Please Enter Valid Input");
       }
+    }
 
-      function changeField(field, fieldValue) {
-        if ((field = "lastName")) lastName[currentPos] = fieldValue;
-        if ((field = "firstName")) firstName[currentPos] = fieldValue;
-        if ((field = "city")) city[currentPos] = fieldValue;
-        if ((field = "state")) state[currentPos] = fieldValue;
+    function changeField(field, fieldValue) {
+      if (field == "lastName") {
+        lastName[currentPos] = fieldValue;
       }
+      if (field == "firstName") {
+        firstName[currentPos] = fieldValue;
+      }
+      if (field == "city") {
+        city[currentPos] = fieldValue;
+      }
+      if (field == "state") {
+        state[currentPos] = fieldValue;
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <h2>Hi-Tech Investments Mailing List Form</h2>
+  <form name="Mail" action="">
+    <strong>Last Name:</strong>
+    <input type="text" name="lastName" value="" size="40" onchange="changeField('lastName',this.value)" /><br /><br />
+    <strong>First Name:</strong>
+    <input type="text" name="firstName" value="" size="40" onchange="changeField('firstName',this.value)" /><br /><br />
+    <strong>City:</strong>
+    <input type="text" name="city" value="" size="40" onchange="changeField('city',this.value)" /><br /><br />
+    <strong>State:</strong>
+    <input type="text" name="state" value="" size="16" onchange="changeField('state',this.value)" /><br /><br />
+    <strong>Record:</strong>
+    <input type="text" name="record" value="0" size="2" />
+    <input type="button" value="Go To" onclick="loadForm(document.Mail.record.value)" /><br /><br />
+
+    <input type="button" value="First" onclick="loadForm(0)" />
+    <input type="button" value="Previous" onclick="loadForm(-1)" />
+    <input type="button" value="Next" onclick="loadForm(-2)" />
+    <input type="button" value="Last" onclick="loadForm(-3)" /><br /><br />
+
+    <strong>Current Record: </strong>
+    <input type="text" name="message" readonly="readonly" value="" size="3" /><br /><br />
+
+    <script type="text/javascript">
+      loadArrays();
     </script>
-  </head>
-  <body>
-    <h2>Hi-Tech Investments Mailing List Form</h2>
-    <form name="Mail" action="">
-      <strong>Last Name:</strong>
-      <input
-        type="text"
-        name="lastName"
-        value=""
-        size="40"
-        onchange="changeField('lastName',this.value)"
-      /><br /><br />
-      <strong>First Name:</strong>
-      <input
-        type="text"
-        name="firstName"
-        value=""
-        size="40"
-        onchange="changeField('firstName',this.value)"
-      /><br /><br />
-      <strong>City:</strong>
-      <input
-        type="text"
-        name="city"
-        value=""
-        size="40"
-        onchange="changeField('city',this.value)"
-      /><br /><br />
-      <strong>State:</strong>
-      <input
-        type="text"
-        name="state"
-        value=""
-        size="16"
-        onchange="changeField('state',this.value)"
-      /><br /><br />
-      <strong>Record:</strong>
-      <input type="text" name="record" value="0" size="2" />
-      <input
-        type="button"
-        value="Go To"
-        onclick="loadForm(document.Mail.record.value)"
-      /><br /><br />
+  </form>
+</body>
 
-      <input type="button" value="First" onclick="loadForm(0)" />
-      <input type="button" value="Previous" onclick="loadForm(-2)" />
-      <input type="button" value="Next" onclick="loadForm(-1)" />
-      <input type="button" value="Last" onclick="loadForm(-3)" /><br /><br />
-
-      <strong>Current Record: </strong>
-      <input
-        type="text"
-        name="message"
-        readonly="readonly"
-        value=""
-        size="3"
-      /><br /><br />
-
-      <script type="text/javascript">
-        loadArrays();
-      </script>
-    </form>
-  </body>
 </html>
