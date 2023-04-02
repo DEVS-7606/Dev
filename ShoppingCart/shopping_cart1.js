@@ -1,7 +1,4 @@
-let totalCart = [];
-let custDetails = [];
-let custAndOrderDetails = [], SIZE = 20, currentPos = 0, outLoadSub = 0;
-let prodPrice = 0;
+let totalCart = [], custDetails = [], custAndOrderDetails = [], currentPos = 0, prodPrice = 0, customerArray = 0;
 
 watchSelect = document.getElementById("brands").value.split("-")
 let brand = watchSelect[0], price = +watchSelect[1];
@@ -16,24 +13,67 @@ function loadForm(sub) {
     }
     if (sub == -2) {
         sub = currentPos + 1;
-        if (sub >= SIZE) sub = SIZE - 1;
+        if (custAndOrderDetails.length == 0) {
+            sub = 0;
+        } else if (sub > custAndOrderDetails.length) {
+            sub = custAndOrderDetails.length - 1;
+        }
     }
     if (sub == -3) {
-        sub = SIZE - 1
+        sub = custAndOrderDetails.length - 1;
+        if (custAndOrderDetails.length == 0) {
+            sub = 0;
+        }
     }
     currentPos = sub;
     document.customerDetails.goTo.value = sub;
 
-    if (sub > SIZE) {
+    if (sub >= custAndOrderDetails.length) {
         sub = 0;
         currentPos = sub;
-        document.Mail.record.value = sub;
-
+        document.customerDetails.goTo.value = sub;
         alert("Please Enter Valid Input");
     }
-    outLoadSub = sub
-}
 
+    if (custAndOrderDetails.length != 0) {
+        document.getElementById("OrderDetails").innerHTML = "";
+        document.getElementById("OrderDetails").innerHTML += `Name: ${custAndOrderDetails[currentPos].userName} \nE-mail: ${custAndOrderDetails[currentPos].userEmail} \nPhone: ${custAndOrderDetails[currentPos].userPhone}\n\n Product Details::\n`;
+        for (let i = 0; i < custAndOrderDetails[currentPos].userOrdDetails.length; i++) {
+            document.getElementById("OrderDetails").innerHTML += `${i + 1}). Brand:${custAndOrderDetails[currentPos].userOrdDetails[i].Brand} ,Price:${custAndOrderDetails[currentPos].userOrdDetails[i].Price} ,\n    Quantites:${custAndOrderDetails[currentPos].userOrdDetails[i].Quantity} ,Product Price:${custAndOrderDetails[currentPos].userOrdDetails[i].ProductPrice}\n`;
+        }
+        document.getElementById("OrderDetails").innerHTML += `\nGrand Total: ${custAndOrderDetails[currentPos].userTotalPrice} \n Total Quantity: ${custAndOrderDetails[currentPos].userTotQuantity}`;
+        document.getElementById("goToInp").value = 0;
+    } else {
+        return;
+    }
+}
+function GoTo(value) {
+    let GoToInp = +value - 1;
+
+    if (GoToInp == -1) {
+        alert("No Record Found")
+        document.getElementById("goToInp").value = 0;
+        return;
+    }
+    else if (GoToInp > custAndOrderDetails.length) {
+        alert("No Record Found")
+        document.getElementById("goToInp").value = 0;
+    } else {
+        loadForm(GoToInp);
+    }
+}
+//     let GoToInp = +document.getElementById("goToInp").value;
+//     if (custAndOrderDetails.length != 0 && custAndOrderDetails.length != 1) {
+//         document.getElementById("OrderDetails").innerHTML = "";
+//         document.getElementById("OrderDetails").innerHTML += `Name: ${custAndOrderDetails[GoToInp].userName} \nE-mail: ${custAndOrderDetails[GoToInp].userEmail} \nPhone: ${custAndOrderDetails[GoToInp].userPhone}\n\n Product Details::\n`;
+//         for (let i = 0; i < custAndOrderDetails[GoToInp].userOrdDetails.length; i++) {
+//             document.getElementById("OrderDetails").innerHTML += `${i + 1}). Brand:${custAndOrderDetails[GoToInp].userOrdDetails[i].Brand} ,Price:${custAndOrderDetails[GoToInp].userOrdDetails[i].Price} ,\n    Quantites:${custAndOrderDetails[GoToInp].userOrdDetails[i].Quantity} ,Product Price:${custAndOrderDetails[GoToInp].userOrdDetails[i].ProductPrice}\n`;
+//         }
+//         document.getElementById("OrderDetails").innerHTML += `\nGrand Total: ${custAndOrderDetails[GoToInp].userTotalPrice} \n Total Quantity: ${custAndOrderDetails[GoToInp].userTotQuantity}`;
+//     } else {
+//         return;
+//     }
+// }
 function brandAndprice(BrandAndPrice) {
     brandAndPrice = BrandAndPrice.split("-");
     brand = brandAndPrice[0];
@@ -49,7 +89,8 @@ function Quantity(Quan) {
 let TotPurchasePrice, TotQuantity;
 function AddToCart() {
     document.getElementById("CartProduct").innerHTML = "";
-
+    document.getElementById("OrderDetails").innerHTML = "";
+    document.getElementById("goToInp").innerHTML = ``;
     prodPrice = price * quantity;
 
     let addToCart = { Brand: brand, Price: price, Quantity: quantity, ProductPrice: prodPrice };
@@ -79,6 +120,7 @@ function AddToCart() {
         document.getElementById("CartProduct").innerHTML += `${i + 1}). Brand:${totalCart[i].Brand} ,Price:${totalCart[i].Price} ,\n    Quantites:${totalCart[i].Quantity} ,Product Price:${totalCart[i].ProductPrice}\n`;
     }
 }
+
 function displayCart() {
     AddToCart()
     document.getElementById("TotDisplay").innerHTML = `Grand Total: ${TotPurchasePrice} | Total Quantity: ${TotQuantity}<br>`;
@@ -127,21 +169,23 @@ function validationTest(key, value) {
 
 function CustomerInfo() {
     document.getElementById("OrderDetails").innerHTML = "";
+    document.getElementById("goToInp").innerHTML = ``;
     let customerDetails = { Name: custName.value, Email: custEmail.value, Number: +custNum.value, };
 
     custDetails.push(customerDetails);
     // console.log(custDetails);
+
+    customerDetails = {};
 }
 
-let b = 0;
 function displayCustomerInfo() {
     CustomerInfo();
-    if (custDetails[b].Name == "" || custDetails[b].Email == "" || custDetails[b].Number == "") {
+    if (custDetails[0] == "" || custDetails[0].Name == "" || custDetails[0].Email == "" || custDetails[0].Number == "") {
         alert("Please Enter Detail!!");
-        b++;
+        custDetails = [];
     } else {
         if (totalCart.length != 0) {
-            document.getElementById("OrderDetails").innerHTML += `Name: ${custDetails[b].Name} \nE-mail: ${custDetails[b].Email} \nPhone: ${custDetails[b].Number}\n\n Product Details:\n`;
+            document.getElementById("OrderDetails").innerHTML += `Name: ${custDetails[0].Name} \nE-mail: ${custDetails[0].Email} \nPhone: ${custDetails[0].Number}\n\n Product Details:\n`;
 
             for (let i = 0; i < totalCart.length; i++) {
                 document.getElementById("OrderDetails").innerHTML += `${i + 1}). Brand:${totalCart[i].Brand} ,Price:${totalCart[i].Price} ,\n    Quantites:${totalCart[i].Quantity} ,Product Price:${totalCart[i].ProductPrice}\n`;
@@ -155,17 +199,17 @@ function displayCustomerInfo() {
 
 function placeOrder() {
     CustomerInfo();
-    AddToCart();
-    loadForm();
+    // AddToCart();
+    // loadForm();
     document.getElementById("OrderDetails").innerHTML = "";
-    if (custDetails[b].Name == "" || custDetails[b].Email == "" || custDetails[b].Number == "") {
+    if (custDetails[0] == "" || custDetails[0].Name == "" || custDetails[0].Email == "" || custDetails[0].Number == "") {
         alert("Please Enter Detail!!");
-        b++;
+        custDetails = [];
     } else {
         if (totalCart.length != 0) {
-            let UserName = custDetails[b].Name;
-            let UserEmail = custDetails[b].Email;
-            let UserPhone = +custDetails[b].Number;
+            let UserName = custDetails[0].Name;
+            let UserEmail = custDetails[0].Email;
+            let UserPhone = +custDetails[0].Number;
             let UserOrderDetails = totalCart;
             let UserTotalPrice = TotPurchasePrice;
             let UserTotalQuantity = TotQuantity;
@@ -182,28 +226,30 @@ function placeOrder() {
 
             custAndOrderDetails.push(userData);
             console.log(custAndOrderDetails);
+
+            userData = {};
+
             alert("Your Order Is Placed !!!")
 
 
 
-            outLoadSub++
+            // outLoadSub++
 
-
-            // document.getElementById("OrderDetails").innerHTML += `Name: ${custAndOrderDetails[outLoadSub].userName} \nE-mail: ${custAndOrderDetails[outLoadSub].userEmail} \nPhone: ${custAndOrderDetails[outLoadSub].userPhone}\n\n Product Details::\n`;
-            // for (let i = 0; i < totalCart.length; i++) {
-            //     document.getElementById("OrderDetails").innerHTML += `${i + 1}). Brand:${custAndOrderDetails[outLoadSub].userOrdDetails[i].Brand} ,Price:${custAndOrderDetails[outLoadSub].userOrdDetails[i].Price} ,\n    Quantites:${custAndOrderDetails[outLoadSub].userOrdDetails[i].Quantity} ,Product Price:${custAndOrderDetails[outLoadSub].userOrdDetails[i].ProductPrice}\n`;
-            // }
-            // document.getElementById("OrderDetails").innerHTML += `\nGrand Total: ${custAndOrderDetails[outLoadSub].userTotalPrice} \n Total Quantity: ${custAndOrderDetails[outLoadSub].userTotQuantity}`;
+            document.getElementById("OrderDetails").innerHTML = ``;
+            document.getElementById("customerNum").value = ``;
+            document.getElementById("customerEmail").value = ``;
+            document.getElementById("customerName").value = ``;
+            document.getElementById("CartProduct").innerHTML = ``;
+            document.getElementById("TotDisplay").innerHTML = ``;
+            document.getElementById("goToInp").innerHTML = ``;
+            TotPurchasePrice = 0;
+            TotQuantity = 0;
+            totalCart = [];
+            custDetails = [];
+            // console.log(totalCart);
+            // console.log(custDetails);
         } else {
             alert("Please Add Item to Cart");
         }
     }
 }
-document.getElementById("OrderDetails").innerHTML = ``;
-document.getElementById("customerNum").value = ``;
-document.getElementById("customerEmail").value = ``;
-document.getElementById("customerName").value = ``;
-document.getElementById("CartProduct").value = ``;
-document.getElementById("TotDisplay").innerHTML = ``;
-TotPurchasePrice = 0;
-TotQuantity = 0
