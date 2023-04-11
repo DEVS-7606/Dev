@@ -16,7 +16,7 @@ function loadForm(sub) {
         if (custAndOrderDetails.length == 0) {
             sub = 0;
         } else if (sub > custAndOrderDetails.length) {
-            sub = custAndOrderDetails.length - 1;
+            sub = custAndOrderDetails.length;
         }
     }
     if (sub == -3) {
@@ -29,7 +29,7 @@ function loadForm(sub) {
     document.customerDetails.goTo.value = sub;
 
     if (sub >= custAndOrderDetails.length) {
-        sub = 0;
+        sub = custAndOrderDetails.length - 1;
         currentPos = sub;
         document.customerDetails.goTo.value = sub;
         alert("Please Enter Valid Input");
@@ -62,18 +62,7 @@ function GoTo(value) {
         loadForm(GoToInp);
     }
 }
-//     let GoToInp = +document.getElementById("goToInp").value;
-//     if (custAndOrderDetails.length != 0 && custAndOrderDetails.length != 1) {
-//         document.getElementById("OrderDetails").innerHTML = "";
-//         document.getElementById("OrderDetails").innerHTML += `Name: ${custAndOrderDetails[GoToInp].userName} \nE-mail: ${custAndOrderDetails[GoToInp].userEmail} \nPhone: ${custAndOrderDetails[GoToInp].userPhone}\n\n Product Details::\n`;
-//         for (let i = 0; i < custAndOrderDetails[GoToInp].userOrdDetails.length; i++) {
-//             document.getElementById("OrderDetails").innerHTML += `${i + 1}). Brand:${custAndOrderDetails[GoToInp].userOrdDetails[i].Brand} ,Price:${custAndOrderDetails[GoToInp].userOrdDetails[i].Price} ,\n    Quantites:${custAndOrderDetails[GoToInp].userOrdDetails[i].Quantity} ,Product Price:${custAndOrderDetails[GoToInp].userOrdDetails[i].ProductPrice}\n`;
-//         }
-//         document.getElementById("OrderDetails").innerHTML += `\nGrand Total: ${custAndOrderDetails[GoToInp].userTotalPrice} \n Total Quantity: ${custAndOrderDetails[GoToInp].userTotQuantity}`;
-//     } else {
-//         return;
-//     }
-// }
+
 function brandAndprice(BrandAndPrice) {
     brandAndPrice = BrandAndPrice.split("-");
     brand = brandAndPrice[0];
@@ -94,8 +83,6 @@ function AddToCart() {
     prodPrice = price * quantity;
 
     let addToCart = { Brand: brand, Price: price, Quantity: quantity, ProductPrice: prodPrice };
-
-    // console.log(addToCart);
 
     totalCart.push(addToCart);
 
@@ -173,7 +160,6 @@ function CustomerInfo() {
     let customerDetails = { Name: custName.value, Email: custEmail.value, Number: +custNum.value, };
 
     custDetails.push(customerDetails);
-    // console.log(custDetails);
 
     customerDetails = {};
 }
@@ -199,8 +185,6 @@ function displayCustomerInfo() {
 
 function placeOrder() {
     CustomerInfo();
-    // AddToCart();
-    // loadForm();
     document.getElementById("OrderDetails").innerHTML = "";
     if (custDetails[0] == "" || custDetails[0].Name == "" || custDetails[0].Email == "" || custDetails[0].Number == "") {
         alert("Please Enter Detail!!");
@@ -222,7 +206,6 @@ function placeOrder() {
                 , userTotalPrice: UserTotalPrice
                 , userTotQuantity: UserTotalQuantity
             }
-            // console.log(userData);
 
             custAndOrderDetails.push(userData);
             console.log(custAndOrderDetails);
@@ -230,10 +213,6 @@ function placeOrder() {
             userData = {};
 
             alert("Your Order Is Placed !!!")
-
-
-
-            // outLoadSub++
 
             document.getElementById("OrderDetails").innerHTML = ``;
             document.getElementById("customerNum").value = ``;
@@ -246,8 +225,6 @@ function placeOrder() {
             TotQuantity = 0;
             totalCart = [];
             custDetails = [];
-            // console.log(totalCart);
-            // console.log(custDetails);
         } else {
             alert("Please Add Item to Cart");
         }
