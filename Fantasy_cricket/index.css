@@ -1,0 +1,55 @@
+.heading{
+    text-align: center;
+    color: cornsilk;
+}
+body{
+    background-image: url("https://images.unsplash.com/photo-1507963901243-ebfaecd5f2f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTZ8MTY0NzgxOHx8ZW58MHx8fHw%3D&w=1000&q=80");
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.TossInputs{
+    color:cornsilk;
+    justify-content:center;
+    display: flex;
+    text-align: center;
+    font-size:x-large;
+}
+
+.TossTeam1{
+    margin-right: 25%;    
+}
+
+.TossTeam2{
+    margin-left: 25%;
+}
+
+.TossDiv{
+    text-align: center;
+}
+
+.TossBtn{
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    font-weight: 600;
+    color: rgb(52, 56, 92);
+    font-size: 14px;
+    height: 38px;
+    padding: 8px 24px;
+    border-radius: 50px;
+    background-image: linear-gradient(180deg,#fff,#f5f5fa);
+    box-shadow: 0 4px 11px 0 rgb(37 44 97 / 15%), 0 1px 3px 0 rgb(93 100 148 / 20%);
+    transition: all .2s ease-out;
+}
+.TossBtn:hover{
+    box-shadow: 0 8px 22px 0 rgb(37 44 97 / 15%), 0 4px 6px 0 rgb(93 100 148 / 20%);
+}
+
+.TossOut{
+    text-align: center;
+    color:rgb(20, 20, 20);
+    font-size: 36px;
+    background-color: rgba(0,210,250,0.1);
+}

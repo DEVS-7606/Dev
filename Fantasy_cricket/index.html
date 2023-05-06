@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="index.css" rel="stylesheet" type="text/css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <div class="heading">
+            <h1>Fantasy league</h1>
+        </div>
+        <br><br>
+        <div>
+            <div class="TossInputs">
+                <div class="TossTeam1">
+                    <label>Team 1</label><br><input type="text" value="" name="Team1" id="team1">
+                </div><br>
+                <div class="TossTeam2">
+                    <label>Team 2</label><br><input type="text" value="" name="Team2" id="team2">
+                </div><br>
+            </div><br>
+            <div class="TossDiv">
+                <input type="button" class="TossBtn" name="tossBtn" id="TossBtn" value="Toss" onclick="toss()">
+            </div>
+        </div><br>
+        <div>
+            <p id="tossOut" class="TossOut"></p>
+        </div>
+    </div>
+    <script src="TossPage.js">
+    </script>
+</body>
+
+</html>
