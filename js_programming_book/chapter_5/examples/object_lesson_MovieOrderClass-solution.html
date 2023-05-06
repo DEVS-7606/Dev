@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      class MovieOrder {
+        constructor(name, deliv) {
+          this.movieName = name;
+          this.deliv = deliv;
+          if (this.deliv == "S") {
+            moviePrice = 3.99;
+          } else {
+            moviePrice = 4.99;
+          }
+        }
+        displayInfo() {
+          document.write(`Movie Name : ${movieName}`);
+          document.write(`Price : ${moviePrice}`);
+        }
+      }
+      let choice;
+      let movie, deliveryType;
+      document.write(
+        "Enter 1 to Order STAR WARS<br />Enter 2 to Order G.I. JOE<br />Enter 3 to Order AVENGERS"
+      );
+      if(choice==1){
+        movie="STAR WARS";
+      }
+      else if(choice==2){
+        movie="G.I. JOE";
+      }
+      else if(choice==3){
+        movie="AVENGERS";
+      }
+      else{
+        movie="NOT AVAILABLE";
+      }
+    //   document.write("Enter S to stream moie <br/ >or D to download")
+      deliveryType=prompt("Enter S to stream movie or D to download","");
+    </script>
+  </body>
+</html>
