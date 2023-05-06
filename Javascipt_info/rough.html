@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var cat = {
+            name: "Fluffy",
+            activities: ["play", "eat cat food"],
+            catFriends: [
+                {
+                    name: "bar",
+                    activities: ["be grumpy", "eat bread omblet"],
+                    weight: 8,
+                    furcolor: "white"
+                },
+                {
+                    name: "foo",
+                    activities: ["sleep", "pre-sleep naps"],
+                    weight: 3
+                }
+            ]
+        }
+
+        cat.height = 20;
+        cat.weight = 12;
+        cat.name = "Fluffyy";
+        cat["catFriends"][0]["activities"].concat(cat["catFriends"][1]["activities"]).forEach((activity, index) => document.write(`${index + 1}:${activity}<br>`));
+
+        cat["catFriends"].forEach((index) => document.write(`${index.name}<br>`))
+
+        console.log(cat);
+
+        document.write(cat["catFriends"].reduce((sum, index) => sum + (index.weight), 0))
+        document.write("<br><strong>Total Acitivites</strong><br>");
+        cat["activities"].concat(cat["catFriends"][0]["activities"], cat["catFriends"][1]["activities"]).forEach((activity, index) => document.write(`${index + 1}:${activity}<br>`));
+
+        cat["catFriends"].forEach((index) => {
+            for (i = 0; i < 2; i++) {
+                index["activities"].push(prompt(`Enter ${i + 1} extra Activity of ${index["name"]} here: `, ""));
+            }
+        })
+        document.write("<br><strong>Modified Total Acitivites</strong><br>");
+        cat["catFriends"][0]["activities"].concat(cat["catFriends"][1]["activities"]).forEach((activity, index) => document.write(`${index + 1}:${activity}<br>`));
+
+        cat["catFriends"][0]["furcolor"] = 'green'
+
+        console.log(cat["catFriends"][0])
+    </script>
+</body>
+
+</html>
